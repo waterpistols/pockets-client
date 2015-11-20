@@ -1,12 +1,14 @@
 /* Empty. Add your own CSS if you like */
 
 @import url(https://fonts.googleapis.com/css?family=Roboto);
-
 .icon-refreshing > ion-spinner > svg {
-  margin: auto;
-  position: absolute;
-  top: -50px; left: 0; bottom: 0; right: 0;
-  text-align: center;
+    margin: auto;
+    position: absolute;
+    top: -50px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
 }
 
 .scroll-content {
@@ -24,15 +26,24 @@
     text-align: left;
 }
 
-#pockets h1 {
+ion-header-bar {
+    background: #2C3D47 !important;
+}
+
+ion-header-bar > button {
+    color: #7E8595 !important;
+}
+
+ion-header-bar .title {
     font-family: Roboto;
-    font-weight: bold;
-    font-size: 13px;
-    color: #7E8595;
+    font-weight: bold !important;
+    font-size: 13px !important;
+    color: #7E8595 !important;
     line-height: 18px;
     text-align: center;
     padding-bottom: 10px;
-    padding-top: 5px;
+    padding-top: 0px;
+    background-color: #2C3D47;
 }
 
 .card.pocket {
@@ -164,6 +175,7 @@
     bottom: 0;
     margin-left: -20px;
 }
+
 .pocket .percentage {
     height: 6px;
     border: 0;

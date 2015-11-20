@@ -1,7 +1,6 @@
-<ion-view view-title="Pockets" id="pockets" hide-back-button="true">
+<ion-view view-title="MY POCKETS" id="pockets" hide-back-button="true">
     <ion-content class="padding">
         <ion-refresher pulling-text="Pull to refresh" class="center" on-refresh="refresh()"></ion-refresher>
-        <h1>MY POCKETS</h1>
         <div ng-repeat="pocket in pockets">
             <div class="card pocket {{ getCardType(pocket) }}" ng-click="details(pocket.id)">
                 <div class="item item-text-wrap">

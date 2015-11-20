@@ -23,7 +23,6 @@
                 Pocket.sync().then(function() {
                     $scope.pockets = Pocket.getPockets();
                 }).finally(function() {
-                    // Stop the ion-refresher from spinning
                     $scope.$broadcast('scroll.refreshComplete');
                 });
             };
