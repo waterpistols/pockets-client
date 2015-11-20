@@ -29,13 +29,11 @@
                     data: [{
                         id: 123,
                         date: 1448024416244,
-                        pocketId: 222,
                         name: "Profi rom-food SRL",
                         amount: 1000
                     }, {
                         id: 124,
                         date: 1447022316244,
-                        pocketId: 222,
                         name: "Dante international",
                         amount: 901
                     },{

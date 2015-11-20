@@ -9148,17 +9148,32 @@ a.button {
   margin: 10px auto;
   width: 95%; }
   .history-list .col {
-    height: 50px; }
+    height: 50px;
+    background-color: white; }
   .history-list .item-date {
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
     color: #A3A3A3; }
-    .history-list .item-date .date {
-      font-size: 11px; }
-    .history-list .item-date .time {
-      font-size: 9px; }
+    .history-list .item-date .date-container {
+      margin-top: 4px;
+      padding-left: 3px;
+      line-height: 1em;
+      border-right: 2px solid #D6D6D6; }
+      .history-list .item-date .date-container .date {
+        font-size: 11px; }
+      .history-list .item-date .date-container .time {
+        font-size: 9px; }
   .history-list .item-amount {
-    line-height: 40px; }
-  .history-list .item-type {
+    font-size: 23px;
+    line-height: 40px;
+    color: #333; }
+  .history-list .item-action {
     border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px; }
+    border-bottom-right-radius: 6px;
+    background: #EBEFE6; }
+    .history-list .item-action .add {
+      text-align: center;
+      font-size: 32px;
+      font-family: Roboto-Light;
+      color: #6B6B6B;
+      line-height: 38px; }
