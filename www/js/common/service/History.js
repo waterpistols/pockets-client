@@ -22,7 +22,7 @@
                 getHistory: function() {
                     return localStorageService.get(_keys.history) || [];
                 }
-            }
+            };
         }
     );
 

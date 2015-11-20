@@ -2,8 +2,9 @@
     'use strict';
 
     app.controller("PocketsCtrl",
-        function($scope, $log, pocketsData) {
-            $log.debug(pocketsData);
+        function($scope, $log, Pocket, pocketsData) {
+            $scope.pockets = pocketsData;
+            console.log($scope.pockets);
         }
     );
 
