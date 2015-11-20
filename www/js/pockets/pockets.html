@@ -2,7 +2,7 @@
     <ion-content class="padding">
         <h1>MY POCKETS</h1>
         <div ng-repeat="pocket in pockets">
-            <div class="card pocket {{ getCardType(pocket) }}">
+            <div class="card pocket {{ getCardType(pocket) }}" ng-click="details(pocket.id)">
                 <div class="item item-text-wrap">
                     <div class="{{ getCardIcon(pocket)}}"></div>
                     <div class="name">{{ pocket.name }}</div>
@@ -15,9 +15,9 @@
                 </div>
             </div>
         </div>
-        <div class="card pocket new-pocket">
+        <div class="card pocket new-pocket" ng-click="addNew()">
             <div class="item item-text-wrap">
-              <div id="add-new-pocket">Add new pocket</div>
+                <div id="add-new-pocket">Add new pocket</div>
             </div>
         </div>
     </ion-content>
