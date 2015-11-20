@@ -9,8 +9,8 @@
          }"
          index="$index">
         <span class="share">
-            {{pocket.share | percentShow}}
-            <span class="label" ng-show="pocket.label">{{pocket.label}}</span>
+            {{pocket.percent | percentShow}}
+            <span class="label" ng-show="pocket.name">{{pocket.name}}</span>
         </span>
     </div>
     <div class="pocket-bar-free" ng-transclude></div>

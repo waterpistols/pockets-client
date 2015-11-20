@@ -60,8 +60,29 @@
                         "X-apikey": $rootScope.authInfo.token
                     }
                 });
+            },
+            getPercentages: function() {
 
+                return $http({
+                    method: "GET",
+                    url: Config.url + "/pockets/percent",
+                    headers: {
+                        "X-apikey": $rootScope.authInfo.token
+                    }
+                });
+            },
+            savePercentages: function(payload) {
+
+                return $http({
+                    method: "POST",
+                    url: Config.url + "/pockets/percent",
+                    data: payload,
+                    headers: {
+                        "X-apikey": $rootScope.authInfo.token
+                    }
+                });
             }
+
         };
     });
 

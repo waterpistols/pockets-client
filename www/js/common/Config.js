@@ -15,4 +15,10 @@
         }
     });
 
+    app.constant("Colors", {
+       '1': '#8BB943',
+       '2': '#DC576B',
+       '3': '#299AB1'
+    })
+
 }(angular.module("pockets")));
