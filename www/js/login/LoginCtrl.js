@@ -7,8 +7,8 @@
         "$state",
         "$ionicPopup",
         "User",
-        function($scope, $state, $ionicPopup, User) {
-            $scope.data = {}
+        function($scope, $state, $ionicPopup, User, Util) {
+            $scope.data = {};
             $scope.login = function() {
                 if ( ! ($scope.data.username && $scope.data.password) ) {
                     $ionicPopup.alert({
@@ -19,6 +19,7 @@
                 }
                 User.login($scope.data).then(function(success) {
                     if (success) {
+                        Util.syncAll();
                         $state.go("tab.cashboard");
                     } else {
                         $ionicPopup.alert({
@@ -27,7 +28,7 @@
                        });
                     }
                 });
-            }
+            };
         }
     ]);
 

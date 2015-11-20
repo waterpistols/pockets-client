@@ -34,13 +34,19 @@
                         amount: 1000
                     },{
                         id: 124,
-                        date: 1448024416244,
+                        date: 1448024316244,
                         pocketId: 222,
                         name: "some fancy transaction",
                         amount: 1000
                     }]});
+                },
+                getPockets: function() {
+                    return $http({
+                        method: "GET",
+                        url: Config.url + "/pockets"
+                    });
                 }
-            }
+            };
         }
     );
 
