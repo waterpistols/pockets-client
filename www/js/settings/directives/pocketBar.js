@@ -27,6 +27,15 @@
                 }
             }
         })
+        .filter('percentShow', function() {
+
+            return function(input) {
+                if (typeof input === 'undefined') {
+                    return '';
+                }
+                return (input * 100).toFixed(0) + '%';
+            };
+        })
         .directive("pocketBarFree", function($timeout) {
             return {
                 restrict: 'C',

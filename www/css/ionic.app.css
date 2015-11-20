@@ -9101,19 +9101,64 @@ a.button {
   padding: 10px; }
   .pocket-bar-wrapper.side {
     width: 20%;
-    background: #999; }
+    padding-bottom: 20px; }
+    .pocket-bar-wrapper.side:after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      height: 1px;
+      width: 10px;
+      margin-left: -5px;
+      border: solid 1px rgba(255, 255, 255, 0.1) !important; }
   .pocket-bar-wrapper.main {
     left: 20%;
-    width: 80%;
-    background: #eee; }
+    width: 80%; }
     .pocket-bar-wrapper.main .pocket-bar-free {
       display: none; }
+  .pocket-bar-wrapper:after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: #2C3D47; }
 
 .pocket-bar {
   position: relative;
-  border-radius: 6px;
-  width: 20px;
-  height: 100%; }
+  width: 10px;
+  height: 100%;
+  margin: 0 auto; }
+  .pocket-bar.fixed {
+    overflow: hidden;
+    border: solid 1px rgba(255, 255, 255, 0.1) !important; }
+    .pocket-bar.fixed > .pocket-bar-separator {
+      background: #2C3D47 !important;
+      border: none !important; }
+    .pocket-bar.fixed:before {
+      content: 'Percentage Pockets';
+      color: #fff;
+      white-space: nowrap;
+      transform: rotateZ(-90deg); }
+  .side .pocket-bar {
+    background: rgba(255, 255, 255, 0.1); }
+    .side .pocket-bar .pocket-bar-separator {
+      border: none; }
+  .main .pocket-bar {
+    width: 100%; }
+    .main .pocket-bar:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 20px;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1); }
+    .main .pocket-bar .pocket-bar-separator:before {
+      width: 19px !important; }
   .pocket-bar.zoomed {
     left: 0;
     height: 100%;
@@ -9124,33 +9169,38 @@ a.button {
   .pocket-bar .pocket-bar-separator {
     position: absolute;
     width: 100%;
-    height: 0; }
+    height: 0;
+    border: solid 1px #333; }
     .pocket-bar .pocket-bar-separator:before {
       content: '';
       position: absolute;
       display: block;
       top: 0;
       width: 100%;
-      border-top: solid 2px #333;
+      border-top: solid 1px inherit;
       height: 5000px;
       background: inherit; }
     .pocket-bar .pocket-bar-separator.trigger .share {
       position: absolute;
-      top: 40px;
-      left: 40px;
+      top: 20px;
+      left: 30px;
+      font-size: 25px;
       z-index: 2; }
+      .pocket-bar .pocket-bar-separator.trigger .share .label {
+        font-size: 15px;
+        color: #fff; }
     .pocket-bar .pocket-bar-separator.trigger:after {
       content: '';
       position: absolute;
       display: block;
       z-index: 0;
-      right: 0;
+      right: -1px;
       top: 0;
-      height: 50px;
+      background: #3C4C57;
       width: 50px;
-      margin-top: -25px;
-      background: #fff;
-      border: solid 1px #333; }
+      height: 50px;
+      border-radius: 100%;
+      margin-top: -25px; }
 
 .history-list {
   margin: 10px auto;
