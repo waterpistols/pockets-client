@@ -8,7 +8,7 @@
                 if ( ! ($scope.data.user && $scope.data.password) ) {
                     $ionicPopup.alert({
                        title: 'Error!',
-                       template: 'Please suply username & password'
+                       template: 'Please supply username & password'
                    });
                    return;
                 }

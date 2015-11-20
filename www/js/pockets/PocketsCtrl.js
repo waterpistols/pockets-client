@@ -6,11 +6,12 @@
             $scope.pockets = [];
             Pocket.sync().then(function() {
                 $scope.pockets = Pocket.getPockets();
+
+                $scope.pockets.push({
+                    name: "Add"
+                });
             });
 
-            $scope.pockets.push({
-                name: "Add"
-            });
 
             $scope.getCardType = function(pocket) {
                 switch (pocket.category) {

@@ -101,9 +101,18 @@
     font-family: Roboto;
     font-size: 27px;
     color: #FFFFFF;
-    line-height: 35px;
+    line-height: 25px;
     text-align: right;
     float: right;
     margin-right: 0px;
     margin-top: -40px;
+}
+
+.pocket .item .amount span {
+    font-family: Roboto;
+    font-size: 12px;
+    color: #2C3D47;
+    line-height: 16px;
+    text-align: right;
+    margin-right: 8px;
 }
