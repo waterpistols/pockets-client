@@ -4,36 +4,10 @@
     app.controller("PocketsCtrl",
         function($scope, $log, pocket, Pocket, $state, $interval) {
             $scope.pockets = [];
-            Pocket.sync().then(function() {
-                var items = Pocket.getPockets();
-                angular.forEach(items, function(item) {
-                    item.percentage = !item.percent ? (item.amount - item.remaining) / 100 : item.percent;
-                });
-
-                $scope.pockets = items;
-
-                $scope.pockets.push({
-                    id: 124,
-                    date: 1448024316244,
-                    pocketId: 223,
-                    name: "New",
-                    type: "Percentage - 20%",
-                    balance: 30,
-                    percentage: 90,
-                    amount: 150
-                });
-            });
-
-            $scope.drawPercentage = function(percentage) {
-                $interval(function(percentage) {
-                    return percentage * 3;
-                }, 100);
-            };
+            syncPockets();
 
             $scope.refresh = function() {
-                Pocket.sync().then(function() {
-                    $scope.pockets = Pocket.getPockets();
-                }).finally(function() {
+                syncPockets().finally(function(){
                     $scope.$broadcast('scroll.refreshComplete');
                 });
             };
@@ -74,6 +48,33 @@
                     default:
                         return "new";
                 }
+            };
+
+
+            function syncPockets() {
+                return Pocket.sync().then(function() {
+                    var items = Pocket.getPockets();
+                    angular.forEach(items, function(item) {
+                        if (!item.percent) {
+                            item.percentage = (item.amount - item.remaining) / 100;
+                        } else {
+                            item.percentage = item.percent;
+                        }
+                    });
+
+                    $scope.pockets = items;
+
+                    $scope.pockets.push({
+                        id: 124,
+                        date: 1448024316244,
+                        pocketId: 223,
+                        name: "New",
+                        type: "Percentage - 20%",
+                        balance: 30,
+                        percentage: 90,
+                        amount: 150
+                    });
+                });
             };
         }
     );
