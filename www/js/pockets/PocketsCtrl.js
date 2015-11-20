@@ -8,8 +8,15 @@
                 $scope.pockets = Pocket.getPockets();
 
                 $scope.pockets.push({
-                    name: "Add"
-                });
+                        id: 124,
+                        date: 1448024316244,
+                        pocketId: 223,
+                        name: "New",
+                        type: "Percentage - 20%",
+                        balance: 30,
+                        percentage: 90,
+                        amount: 150
+                    });
             });
 
 
@@ -22,7 +29,7 @@
                     case 2:
                         return "pocket-groceries";
                     default:
-                        return "pocket-default";
+                        return "pocket-new";
                 }
             };
 
@@ -35,7 +42,7 @@
                     case 2:
                         return "groceries";
                     default:
-                        return "default";
+                        return "new";
                 }
             };
         }
