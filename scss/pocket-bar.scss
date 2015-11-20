@@ -14,10 +14,21 @@
         width: 80%;
         background: #eee;
     }
-    .pocket-bar-separator {
-        position: relative;
+    &.zoomed {
+
+        left: 0;
+        height: 100%;
         width: 100%;
-        height: 25px;
+    }
+    .pocket-bar-free {
+        position: relative;
+        overflow: hidden;
+    }
+    .pocket-bar-separator {
+        position: absolute;
+        width: 100%;
+        height: 0;
+
 
         &:before {
             content: '';
@@ -26,6 +37,8 @@
             top: 0;
             width: 100%;
             border-top: solid 2px #333;
+            height: 5000px;
+            background: inherit;
         }
 
         &.trigger {

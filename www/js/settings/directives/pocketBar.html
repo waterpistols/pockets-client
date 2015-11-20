@@ -1,6 +1,11 @@
 <div class="pocket-bar">
-
-    <canvas class="canvas-bar pocket-bar-regions"></canvas>
-    <div class="pocket-bar-separator" ng-repeat="pocket in pockets"
-                          ng-class="pocket.id"></div>
+    <div class="pocket-bar-separator"
+         ng-repeat="pocket in pockets"
+         ng-class="pocket.id"
+         ng-style="{
+            'background': pocket.color
+         }"
+         index="$index">
+    </div>
+    <div class="pocket-bar-free" ng-transclude></div>
 </div>

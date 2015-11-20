@@ -1,6 +1,6 @@
 angular.module('pockets', [
-    'ionic','ionic.service.core',
-
+    'ionic',
+    'ionic.service.core',
     'ionic.service.push',
 
     'LocalStorageModule',
@@ -30,7 +30,7 @@ angular.module('pockets', [
           console.log("Device token:",token.token);
         });
         User.sync();
-        
+
     });
 })
 .config(function($stateProvider, $urlRouterProvider) {

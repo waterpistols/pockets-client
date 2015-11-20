@@ -8,9 +8,9 @@
                 transclude : true,
                 replace    : true,
                 templateUrl: 'js/settings/directives/pocketBar.html',
-                scope: {
+                scope      : {
+                    total  : '=',
                     pockets: '=',
-                    total: '=',
                     onMoved: '='
                 },
                 controller : function() {
@@ -20,33 +20,56 @@
                     if (attrs.fixed === '') {
                         controller.fixed = true;
                     }
+                    if (attrs.zoomed === '') {
+                        controller.zoomed = true;
+                    }
                     controller.scope = scope;
                 }
             }
         })
-        .directive("pocketBarRegions", function() {
+        .directive("pocketBarFree", function($timeout) {
             return {
                 restrict: 'C',
-                replace : true,
-                require : '^pocketBar',
                 link: function(scope, element, attrs) {
+                    var parent      = element.parent();
+                    scope.height = 0;
 
+                    var getHighestPosition = function() {
+                        var siblings = element.siblings();
+                        var max = 5000;
+                        siblings.each(function() {
+                            var top = $(this).position().top;
+                            if (top < max) {
+                                max = top;
+                            }
+                        });
+                        return max;
+                    };
+                    $timeout(function() {
+                        var height = getHighestPosition();
+
+                        element.height(height);
+                    });
                 }
-            }
+            };
         })
-        .directive("pocketBarSeparator", function() {
+        .directive("pocketBarSeparator", function($timeout) {
             return {
                 restrict: 'C',
                 replace : true,
                 require : '^pocketBar',
+
                 link    : function(scope, element, attrs, pocketBar) {
-                    var getHeight = function() {
+                    var parent      = element.parent();
+                    var getPosition = function(pocket) {
                         var value;
 
-                        if (typeof scope.pocket.share !== 'undefined') {
-                            value = (scope.total / 100) * scope.pocket.share;
-                        } else if (typeof scope.pocket.amount !== 'undefined') {
-                            value = (scope.total / 100) * (scope.pocket.amount / scope.total * 100);
+
+
+                        if (typeof pocket.share !== 'undefined') {
+                            value = (1 - pocket.share);
+                        } else if (typeof pocket.amount !== 'undefined') {
+                            value = (1 - pocket.amount / scope.total);
                         }
 
                         if (value < 0) {
@@ -55,13 +78,31 @@
                         return value;
                     };
 
+                    scope.pocket.position = getPosition(scope.pocket);
+
+                    if (pocketBar.zoomed) {
+                        scope.$watch('pocket.position', function(newValue) {
+                            console.log(scope.pocket);
+                        });
+                    }
+
+
+
                     if (!pocketBar.fixed) {
                         element.addClass('trigger');
                         element.draggabilly({
-                            axis: 'y',
-                            containment: element.parent()
-                        });
+                            axis       : 'y',
+                            containment: parent
+                        })
+                            .on('dragMove', function(event, pointer, moveVector) {
+                                scope.pocket.position = element.position().top;
+                                scope.$apply();
+                            });
                     }
+                    element.css({
+                        'top': (scope.pocket.position * 100) + '%',
+                    });
+
                 }
             }
         });
