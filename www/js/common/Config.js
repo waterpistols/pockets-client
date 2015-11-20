@@ -3,7 +3,7 @@
     'use strict';
 
     app.constant("Config", {
-        url: "http://heroku"
+        url: "http://localhost/v1"
     });
 
 }(angular.module("pockets")));
