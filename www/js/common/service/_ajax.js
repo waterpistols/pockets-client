@@ -68,13 +68,31 @@
                         date: 1448024416244,
                         pocketId: 222,
                         name: "Pocket 1",
-                        amount: 1000
+                        amount: 1000,
+                        balance: 10,
+                        type: "Fixed Rate",
+                        category: 0,
+                        icon: 0
                     }, {
                         id: 124,
                         date: 1448024316244,
+                        pocketId: 223,
+                        name: "Pocket 2",
+                        type: "Percentage - 20%",
+                        balance: 30,
+                        amount: 1000,
+                        category: 1,
+                        icon: 1
+                    },{
+                        id: 123,
+                        date: 1448024416244,
                         pocketId: 222,
                         name: "Pocket 1",
-                        amount: 1000
+                        amount: 1000,
+                        balance: 10,
+                        type: "Fixed Rate",
+                        category: 2,
+                        icon: 0
                     }]
                 });
             }

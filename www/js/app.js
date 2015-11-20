@@ -49,8 +49,8 @@ angular.module('pockets', [
                 }
             },
             resolve: {
-                pocketsData: function(Pocket, $state, $log) {
-                    return Pocket.getPockets();
+                pocket: function(Pocket) {
+                    return true;
                 }
             }
         })
