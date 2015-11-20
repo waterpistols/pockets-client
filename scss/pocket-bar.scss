@@ -1,0 +1,47 @@
+.pocket-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+
+    &.side {
+        width: 20%;
+        background: #999;
+    }
+    &.main {
+        left: 20%;
+        width: 80%;
+        background: #eee;
+    }
+    .pocket-bar-separator {
+        position: relative;
+        width: 100%;
+        height: 25px;
+
+        &:before {
+            content: '';
+            position: absolute;
+            display: block;
+            top: 0;
+            width: 100%;
+            border-top: solid 2px #333;
+        }
+
+        &.trigger {
+
+            &:after {
+                content: '';
+                position: absolute;
+                display: block;
+                right: 0;
+                top: 0;
+                height: 50px;
+                width: 50px;
+                margin-top: -25px;
+                background: #fff;
+                border: solid 1px #333;
+            }
+        }
+    }
+}

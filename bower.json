@@ -5,6 +5,8 @@
     "ionic": "driftyco/ionic-bower#1.1.1"
   },
   "dependencies": {
-    "angular-local-storage": "~0.2.3"
+    "angular-local-storage": "~0.2.3",
+    "draggabilly": "~1.2.4",
+    "jquery": "~2.1.4"
   }
 }
