@@ -4,9 +4,8 @@
 
     app.controller("CashboardCtrl", function($scope, $state, $rootScope) {
         if ( ! $rootScope.authInfo ) {
-                $state.go("login");
-            }
+            $state.go("login");
         }
-    );
+    });
 
 }(angular.module("pockets")));
