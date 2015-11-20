@@ -29,45 +29,53 @@ angular.module('pockets', ['ionic'])
                 templateUrl: 'js/login/login.html',
                 controller: 'LoginCtrl'
             })
-            .state('tab.dash', {
-                url: '/dash',
+            .state('tab.cashboard', {
+                url: '/cashboard',
                 views: {
-                    'tab-dash': {
-                        templateUrl: 'templates/tab-dash.html',
-                        controller: 'DashCtrl'
+                    'tab-cashboard': {
+                        templateUrl: 'js/cashboard/cashboard.html',
+                        controller: 'CashboardCtrl'
                     }
                 }
             })
-            .state('tab.chats', {
-                url: '/chats',
+            .state('tab.pockets', {
+                url: '/pockets',
                 views: {
-                    'tab-chats': {
-                        templateUrl: 'templates/tab-chats.html',
-                        controller: 'ChatsCtrl'
+                    'tab-pockets': {
+                        templateUrl: 'js/pockets/pockets.html',
+                        controller: 'PocketsCtrl'
                     }
                 }
             })
-            .state('tab.chat-detail', {
-                url: '/chats/:chatId',
+            .state('tab.pocket-details', {
+                url: '/pocket/:pocketId',
                 views: {
-                    'tab-chats': {
-                        templateUrl: 'templates/chat-detail.html',
-                        controller: 'ChatDetailCtrl'
+                    'tab-pockets': {
+                        templateUrl: 'js/pockets/pocket-details.html',
+                        controller: 'PocketDetailsCtrl'
                     }
                 }
             })
-
-            .state('tab.account', {
-                url: '/account',
+            .state('tab.history', {
+                url: '/history',
                 views: {
-                    'tab-account': {
-                        templateUrl: 'templates/tab-account.html',
-                        controller: 'AccountCtrl'
+                    'tab-history': {
+                        templateUrl: 'js/history/history.html',
+                        controller: 'HistoryCtrl'
+                    }
+                }
+            })
+            .state('tab.settings', {
+                url: '/settings',
+                views: {
+                    'tab-history': {
+                        templateUrl: 'js/settings/settings.html',
+                        controller: 'SettingsCtrl'
                     }
                 }
             });
 
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/tab/dash');
+        $urlRouterProvider.otherwise('/tab/cashboard');
 
     });
