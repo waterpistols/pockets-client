@@ -1,6 +1,6 @@
 angular.module('pockets', [
-    'ionic',
-    'ionic.service.core',
+    'ionic','ionic.service.core',
+    
     'ionic.service.push',
 
     'LocalStorageModule',

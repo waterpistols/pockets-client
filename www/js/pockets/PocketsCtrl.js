@@ -19,6 +19,7 @@
                 });
             });
 
+
             $scope.addNew = function() {
                 $state.go();
             };
