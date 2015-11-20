@@ -11,20 +11,20 @@
                 items: [
                     {
                         id: 2,
-                        share: 0.5,
+                        share: 0.3,
                         color: 'yellow'
                     },
-                    //
-                    //{
-                    //    id: 4,
-                    //    share: 0.15,
-                    //    color: 'green'
-                    //},
+
                     {
                         id: 3,
                         share: 0.3,
                         color: 'cyan'
-                    }
+                    },
+                    {
+                        id: 4,
+                        share: 0.2,
+                        color: 'green'
+                    },
                 ]
             };
 
@@ -46,7 +46,7 @@
             };
 
             $scope.onMoved = function() {
-                console.log(mainPockets);
+                console.log($scope.fluidPockets);
             };
         }
     );

@@ -53,7 +53,7 @@
                 }
             };
         })
-        .directive("pocketBarSeparator", function($timeout) {
+        .directive("pocketBarSeparator", function($rootScope) {
             return {
                 restrict: 'C',
                 replace : true,
@@ -62,21 +62,29 @@
                 link    : function(scope, element, attrs, pocketBar) {
                     var parent      = element.parent();
 
-                    
+
+                    scope.pocket.realShare = scope.pocket.share;
+
                     var getSiblingsShare = function() {
                         var total = 0;
-                        for (var i = 0; i < scope.pockets.length; i++) {
-                            if (scope.pockets[i] !== scope.pocket) {
-                                total += scope.pockets[i].realShare;
-                            }
+
+
+                        if (!scope.pockets[scope.$index + 1]) {
+                            return 0;
                         }
+
+                        for (var i = scope.$index + 1; i < scope.pockets.length; i++) {
+                            total += scope.pockets[i].share;
+                        }
+
+
                         return total;
                     };
                     var getPosition = function(pocket) {
                         var value;
 
                         if (typeof pocket.share !== 'undefined') {
-                            value = (1 - pocket.share);
+                            value = (1 - pocket.share- getSiblingsShare());
                         } else if (typeof pocket.amount !== 'undefined') {
                             value = (1 - pocket.amount / scope.total);
                         }
@@ -87,7 +95,15 @@
                         return value;
                     };
 
+                    var updateRealShare = function() {
+                        scope.pocket.position = element.position().top;
+                        scope.pocket.share = 1 - scope.pocket.position / parent.height() - getSiblingsShare();
+                        scope.pocket.share = Math.round(scope.pocket.share * 100) / 100;
+                        scope.$apply();
+                    };
                     scope.pocket.position = getPosition(scope.pocket);
+
+
 
                     if (pocketBar.zoomed) {
                         scope.$watch('pocket.share', function(newValue) {
@@ -106,15 +122,18 @@
                             containment: parent
                         })
                             .on('dragMove', function(event, pointer, moveVector) {
-                                scope.pocket.position = element.position().top;
-                                scope.pocket.share = 1 - scope.pocket.position / parent.height();
-                                scope.pocket.realShare = 1 - scope.pocket.share + getSiblingsShare();
-                                scope.$apply();
+                                $rootScope.$broadcast('updateShare');
+                            })
+                            .on('dragEnd', function() {
+                                pocketBar.scope.onMoved();
                             });
                     }
                     element.css({
                         'top': (scope.pocket.position * 100) + '%'
                     });
+
+
+                    scope.$on('updateShare', updateRealShare);
 
                 }
             }
