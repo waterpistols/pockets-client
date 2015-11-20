@@ -22,8 +22,8 @@
                 getUsers: function() {
                     return localStorageService.get(_keys.users);
                 },
-                login: function() {
-                    return _ajax.login().then(
+                login: function(data) {
+                    return _ajax.login(data).then(
                         function success(res) {
                             if (res.data) {
                                 $rootScope.authInfo = res.data;

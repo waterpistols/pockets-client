@@ -19,7 +19,7 @@
                 }
                 User.login($scope.data).then(function(success) {
                     if (success) {
-                        $state.go("cashboard")
+                        $state.go("tab.cashboard");
                     } else {
                         $ionicPopup.alert({
                            title: 'Error!',
