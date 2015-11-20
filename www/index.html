@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
+    <title>Pockets</title>
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-  <link href="css/ionic.app.css" rel="stylesheet">
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-  <link href="css/ionic.app.css" rel="stylesheet">
-  -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="lib/nvd3/nv.d3.css" rel="stylesheet">
 </head>
 
 <body ng-app="pockets">
@@ -28,10 +28,19 @@
     <!-- ionic/angularjs js -->
     <script src="lib/jquery/dist/jquery.js"></script>
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <script src="lib/ionic-service-core/ionic-core.js"></script>
+    <script src="lib/ionic-service-push/ionic-push.js"></script>
+
     <script src="lib/angular-local-storage/dist/angular-local-storage.js"></script>
     <script src="lib/draggabilly/dist/draggabilly.pkgd.js"></script>
+    <script src="lib/d3/d3.js"></script>
+    <script src="lib/nvd3/nv.d3.js"></script>
+    <script src="lib/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script>
     <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+    <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
+<!-- <script src="cordova.js"></script> -->
     <!-- your app's js -->
     <script src="js/app.js"></script>
     <script src="js/login/LoginCtrl.js"></script>
@@ -40,7 +49,6 @@
     <script src="js/pockets/PocketsCtrl.js"></script>
     <script src="js/pockets/PocketDetailsCtrl.js"></script>
     <script src="js/settings/SettingsCtrl.js"></script>
-
     <script src="js/settings/directives/pocketBar.js"></script>
     <script src="js/common/Config.js"></script>
     <script src="js/common/service/_ajax.js"></script>
@@ -50,4 +58,3 @@
     <script src="js/common/service/History.js"></script>
     <script src="js/common/service/Pocket.js"></script>
 </body>
-</html>

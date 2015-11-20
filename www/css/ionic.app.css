@@ -9135,3 +9135,7 @@ a.button {
       margin-top: -25px;
       background: #fff;
       border: solid 1px #333; }
+
+.list.history .item {
+  background-color: #2C3D47;
+  border: 0; }

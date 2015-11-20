@@ -2,11 +2,16 @@
   "name": "HelloIonic",
   "private": "true",
   "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.1.1"
+    "ionic": "driftyco/ionic-bower#1.1.1",
+    "ionic-platform-web-client": "~0.2.1"
   },
   "dependencies": {
     "angular-local-storage": "~0.2.3",
+    "angularjs-nvd3-directives": "~0.0.7",
     "draggabilly": "~1.2.4",
-    "jquery": "~2.1.4"
+    "jquery": "~2.1.4",
+    "ionic-service-push": "~0.1.13",
+    "ionic-service-core": "~0.1.10",
+    "ngCordova": "~0.1.23-alpha"
   }
 }

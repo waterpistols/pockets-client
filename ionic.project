@@ -1,10 +1,10 @@
 {
   "name": "pockets",
-  "app_id": "",
+  "app_id": "7fce942c",
   "proxies": [
     {
       "path": "/v1",
-      "proxyUrl": "https://pockets-server.herokuapp.com/v1"
+      "proxyUrl": "http://192.168.145.21/v1"
     }
   ],
   "gulpStartupTasks": [

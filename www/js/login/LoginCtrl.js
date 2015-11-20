@@ -5,10 +5,10 @@
     app.controller("LoginCtrl", function($scope, $state, $ionicPopup, User, Util) {
             $scope.data = {};
             $scope.login = function() {
-                if ( ! ($scope.data.username && $scope.data.password) ) {
+                if ( ! ($scope.data.user && $scope.data.password) ) {
                     $ionicPopup.alert({
                        title: 'Error!',
-                       template: 'Please suply username & password'
+                       template: 'Please supply username & password'
                    });
                    return;
                 }

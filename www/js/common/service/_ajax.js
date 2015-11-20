@@ -67,14 +67,32 @@
                         id: 123,
                         date: 1448024416244,
                         pocketId: 222,
-                        name: "Pocket 1",
-                        amount: 1000
+                        name: "Rent",
+                        amount: 250.12,
+                        balance: 10,
+                        type: "Fixed Rate",
+                        category: 0,
+                        icon: 0
                     }, {
                         id: 124,
                         date: 1448024316244,
+                        pocketId: 223,
+                        name: "Utilities",
+                        type: "Percentage - 20%",
+                        balance: 30,
+                        amount: 150,
+                        category: 1,
+                        icon: 1
+                    },{
+                        id: 123,
+                        date: 1448024416244,
                         pocketId: 222,
-                        name: "Pocket 1",
-                        amount: 1000
+                        name: "Groceries",
+                        amount: 33,
+                        balance: 10,
+                        type: "Fixed Rate",
+                        category: 2,
+                        icon: 0
                     }]
                 });
             }

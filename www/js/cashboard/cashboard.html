@@ -1,4 +1,17 @@
 <ion-view view-title="Cashboard" hide-back-button="true">
-    <ion-content class="padding">
+    <ion-content>
+        <h2>Last month: </h2>
+        <nvd3-line-chart
+            data="exampleData"
+            showXAxis="true"
+            showYAxis="true"
+            tooltips="true"
+            interactive="true"
+            margin="{left:20,top:20,bottom:20,right:20}"
+            tooltips="true"
+            tooltipcontent="toolTipContentFunction()"
+            noData="No data to display :)"
+        >
+    </nvd3-line-chart>
     </ion-content>
 </ion-view>
