@@ -8,10 +8,11 @@
         function($http, Config) {
             return {
                 getUsers: function() {
+
                     return $http({
                         method: "GET",
                         url: Config.url + "/users"
-                    })
+                    });
                 }
             }
         }

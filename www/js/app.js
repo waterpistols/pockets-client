@@ -1,5 +1,8 @@
 
-angular.module('pockets', ['ionic'])
+angular.module('pockets', [
+    'ionic',
+    'LocalStorageModule'
+])
 
     .run(function($ionicPlatform) {
         $ionicPlatform.ready(function() {
@@ -68,9 +71,16 @@ angular.module('pockets', ['ionic'])
             .state('tab.settings', {
                 url: '/settings',
                 views: {
-                    'tab-history': {
+                    'tab-settings': {
                         templateUrl: 'js/settings/settings.html',
-                        controller: 'SettingsCtrl'
+                        controller : 'SettingsCtrl'
+                    }
+                },
+                resolve: {
+                    userData: function(User, $state, $log) {
+                        return User.sync().catch(function(error) {
+                            $log.debug(error);
+                        });
                     }
                 }
             });
