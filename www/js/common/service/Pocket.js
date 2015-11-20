@@ -26,7 +26,7 @@
                 var result = {};
 
                 for (var i = 0 ; i < pockets.length; i++ ) {
-                    result[ pockets[i].id ] = pockets[i];
+                    result[ pockets[i]._id ] = pockets[i];
                 }
                 return result;
             }
