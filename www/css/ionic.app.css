@@ -9277,3 +9277,26 @@ a.button {
       font-family: Roboto-Light;
       color: #6B6B6B;
       line-height: 48px; }
+
+.divider {
+  margin: 10px auto;
+  width: 90%;
+  font-size: 9px;
+  color: #7E8595;
+  line-height: 9px; }
+  .divider hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 2px solid #7E8595;
+    margin: 1em 0;
+    padding: 0; }
+
+.exit {
+  color: white;
+  position: relative;
+  font-size: 21px; }
+  .exit span {
+    position: absolute;
+    top: 10px;
+    right: 10px; }

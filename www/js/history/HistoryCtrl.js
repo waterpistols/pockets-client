@@ -30,6 +30,10 @@
             //
             $scope.history = History.getHistory();
         };
+
+        $scope.cancel = function() {
+            $scope.modal.hide();
+        }
     });
 
 }(angular.module("pockets")));
