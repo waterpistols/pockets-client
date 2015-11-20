@@ -9092,20 +9092,28 @@ a.button {
 .full-height .scroll {
   height: 100%; }
 
-.pocket-bar {
+.pocket-bar-wrapper {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%; }
-  .pocket-bar.side {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 10px; }
+  .pocket-bar-wrapper.side {
     width: 20%;
     background: #999; }
-  .pocket-bar.main {
+  .pocket-bar-wrapper.main {
     left: 20%;
     width: 80%;
     background: #eee; }
-    .pocket-bar.main .pocket-bar-free {
+    .pocket-bar-wrapper.main .pocket-bar-free {
       display: none; }
+
+.pocket-bar {
+  position: relative;
+  border-radius: 6px;
+  width: 20px;
+  height: 100%; }
   .pocket-bar.zoomed {
     left: 0;
     height: 100%;
