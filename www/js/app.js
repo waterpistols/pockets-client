@@ -1,12 +1,14 @@
 angular.module('pockets', [
-        'ionic', 'ionic.service.core',
-
+        'ionic',
+        'ionic.service.core',
         'ionic.service.push',
-
+        'ngAnimate',
         'LocalStorageModule',
         'nvd3ChartDirectives'
     ])
     .run(function($ionicPlatform, User, Notification) {
+        User.sync();
+
         $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -19,14 +21,10 @@ angular.module('pockets', [
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
             }
-
-            User.sync();
             Notification.register();
         });
     })
-    .config(function($stateProvider, $ionicAppProvider, $urlRouterProvider, $animateProvider, Config) {
-        $animateProvider.classNameFilter(/^((?!col-md).)*$/);
-
+    .config(function($stateProvider, $ionicAppProvider, $urlRouterProvider, Config) {
         $ionicAppProvider.identify({
             app_id: Config.ionic.app_id,
             api_key: Config.ionic.api_key,
@@ -87,6 +85,9 @@ angular.module('pockets', [
                 resolve: {
                     history: function(History) {
                         return History.getHistory();
+                    },
+                    pockets: function(Pocket) {
+                        return Pocket.getById();
                     }
                 }
             })

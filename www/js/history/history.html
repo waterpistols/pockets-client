@@ -1,7 +1,6 @@
-<ion-view view-title="History" hide-back-button="true">
+<ion-view view-title="HISTORY" hide-back-button="true">
     <ion-content >
         <div class="row history-list" ng-repeat="hist in history | orderBy:'date':true">
-            <hr margin="9px">
             <div class="item-date col col-20">
                 <div class="date-container">
                     <span class="date">{{ hist.date | date:'dd MMM' }}</span><br/>
@@ -11,14 +10,25 @@
             <div class="item-amount col col-50">
                 ${{ hist.amount }}
             </div>
-            <div class="item-action col">
+            <div class="item-action col" ng-click="addToPocket()">
                 <div class="mypocket" ng-show="hist.pocketId">
-                    {{ hist.name }}
+                    <div class="brand">{{ pockets[ hist.pocketId ].name }}</div>
+                    <div class="chevrone ion-ios-arrow-down"></div>
                 </div>
-                <div class="add" ng-hide="hist.pocketId" ng-click="addToPocket()">
+                <div class="add" ng-hide="hist.pocketId">
                     +
                 </div>
             </div>
         </div>
+
+        <script id="pockets-list.html" type="text/ng-template">
+          <ion-modal-view>
+          <div class="list">
+            <div class="item item-icon-left" ng-click="selectPocket()">
+              <i class="icon ion-email"></i>
+              Check mail
+            </div>
+          </ion-modal-view>
+        </script>
     </ion-content>
 </ion-view>
