@@ -1,6 +1,12 @@
 {
   "name": "pockets",
   "app_id": "",
+  "proxies": [
+    {
+      "path": "/v1",
+      "proxyUrl": "https://pockets-server.herokuapp.com/v1"
+    }
+  ],
   "gulpStartupTasks": [
     "sass",
     "watch"
