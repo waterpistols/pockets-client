@@ -5,31 +5,47 @@
         function($scope, $log, userData) {
             $log.debug(userData);
 
-            $scope.sideTotal = 1000;
-            $scope.sidePockets = [
-                {
-                    id: 1,
-                    amount: 500,
-                    color: 'red'
-                }
-            ];
 
-            $scope.mainTotal = 500;
-            $scope.mainPockets = [
-                {
-                    id: 2,
-                    share: 30,
-                    color: 'yellow'
-                },
-                {
-                    id: 2,
-                    share: 40,
-                    color: 'blue'
-                }
-            ];
+
+            $scope.fluidPockets = {
+                total: 1000,
+                items: [
+                    {
+                        id: 2,
+                        share: 0.5,
+                        color: 'yellow'
+                    },
+                    {
+                        id: 3,
+                        share: 0.1,
+                        color: 'blue'
+                    },
+                    {
+                        id: 4,
+                        share: 0.15,
+                        color: 'green'
+                    }
+                ]
+            };
+
+            $scope.fixedPockets = {
+                total: 500,
+                items: [
+                    {
+                        id: 1,
+                        amount: 50,
+                        color: 'red'
+                    },
+                    {
+                        id: 2,
+                        amount: 150,
+                        color: 'blue'
+                    }
+                ]
+            };
 
             $scope.onMoved = function() {
-                console.log(mainPockets);
+                console.log(fixedPockets);
             };
         }
     );
