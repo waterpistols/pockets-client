@@ -1,4 +1,17 @@
-<ion-view view-title="Settings" hide-back-button="true">
-    <ion-content class="padding">
+<ion-view view-title="Settings" class="full-height" hide-back-button="true">
+    <ion-content  scroll="false" class="padding">
+        <pocket-bar class="side">
+            <canvas class="canvas-bar"></canvas>
+            <pocket-bar-separator href class="separator sep-1"></pocket-bar-separator>
+        </pocket-bar>
+        <pocket-bar class="main">
+            <canvas class="canvas-bar"></canvas>
+            <pocket-bar-separator class="separator sep-2" style="top: 30%">
+                <a href class="trigger"></a>
+            </pocket-bar-separator>
+            <pocket-bar-separator class="separator sep-3" style="top: 60%">
+                <a href class="trigger"></a>
+            </pocket-bar-separator>
+        </pocket-bar>
     </ion-content>
 </ion-view>
