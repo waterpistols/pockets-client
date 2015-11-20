@@ -4,23 +4,45 @@
 
     .col {
         height: 50px;
+        background-color: white;
     }
     .item-date {
         border-top-left-radius: 6px;
         border-bottom-left-radius: 6px;
         color: $gray1;
-        .date {
-            font-size: 11px;
-        }
-        .time {
-            font-size: 9px;
+
+        .date-container {
+            margin-top: 4px;
+            padding-left: 3px;
+            line-height: 1em;
+            border-right: 2px solid $gray2;
+            .date {
+                font-size: 11px;
+            }
+            .time {
+                font-size: 9px;
+            }
         }
     }
     .item-amount {
-        line-height: 40px;
+        font-size:23px;
+        line-height:40px;
+        color: $gray3;
     }
-    .item-type {
+    .item-action {
         border-top-right-radius: 6px;
         border-bottom-right-radius: 6px;
+        background:#EBEFE6;
+        
+        .mypocket {
+
+        }
+        .add {
+            text-align: center;
+            font-size: 32px;
+            font-family:Roboto-Light;
+            color:#6B6B6B;
+            line-height: 38px;
+        }
     }
 }

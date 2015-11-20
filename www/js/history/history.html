@@ -1,15 +1,23 @@
 <ion-view view-title="History" hide-back-button="true">
     <ion-content >
         <div class="row history-list" ng-repeat="hist in history | orderBy:'date':true">
-            <div class="item-date col col-20" style="background: green">
-                <span class="date">{{ hist.date | date:'dd MMM' }}</span><br/>
-                <span class="time">{{ hist.date | date:'HH:mm' }}</span>
+            <hr margin="9px">
+            <div class="item-date col col-20">
+                <div class="date-container">
+                    <span class="date">{{ hist.date | date:'dd MMM' }}</span><br/>
+                    <span class="time">{{ hist.date | date:'HH:mm' }}</span>
+                </div>
             </div>
-            <div class="item-amount col col-50" style="background: blue">
+            <div class="item-amount col col-50">
                 ${{ hist.amount }}
             </div>
-            <div class="item-type col" style="background: red">
-                {{ hist.name }}
+            <div class="item-action col">
+                <div class="mypocket" ng-show="hist.pocketId">
+                    {{ hist.name }}
+                </div>
+                <div class="add" ng-hide="hist.pocketId" ng-click="addToPocket()">
+                    +
+                </div>
             </div>
         </div>
     </ion-content>
