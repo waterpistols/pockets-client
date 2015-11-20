@@ -2,8 +2,9 @@ angular.module('pockets', [
     'ionic',
     'LocalStorageModule'
 ])
+.run(function($ionicPlatform, User) {
+    User.sync();
 
-.run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -18,7 +19,6 @@ angular.module('pockets', [
         }
     });
 })
-
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('tab', {
@@ -84,17 +84,9 @@ angular.module('pockets', [
                     templateUrl: 'js/settings/settings.html',
                     controller: 'SettingsCtrl'
                 }
-            },
-            resolve: {
-                userData: function(User, $state, $log) {
-                    return User.sync().catch(function(error) {
-                        $log.debug(error);
-                    });
-                }
             }
         });
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/tab/cashboard');
-
 });

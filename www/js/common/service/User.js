@@ -3,24 +3,13 @@
 
     app.factory("User", function(_ajax, localStorageService, $q, $rootScope) {
             var _keys = {
-                users: "users",
-                authInfo: "auth"
+                authInfo: "authInfo"
             };
 
             return {
                 sync: function() {
-                    return _ajax.getUsers().then(
-                        function success(res) {
-                            if (res.data) {
-                                return localStorageService.set(_keys.users, res.data);
-                            } else {
-                                $q.reject(new Error('No data received'));
-                            }
-                        }
-                    );
-                },
-                getUsers: function() {
-                    return localStorageService.get(_keys.users);
+                    var auth = localStorageService.get(_keys.authInfo);
+                    $rootScope[_keys.authInfo] = auth;
                 },
                 login: function(data) {
                     return _ajax.login(data).then(

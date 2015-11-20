@@ -2,9 +2,7 @@
 (function(app) {
     'use strict';
     app.controller("SettingsCtrl",
-        function($scope, $log, userData) {
-            $log.debug(userData);
-
+        function($scope, $log) {
             $scope.sideTotal = 1000;
             $scope.sidePockets = [
                 {
