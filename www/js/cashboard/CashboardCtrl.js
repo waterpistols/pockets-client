@@ -15,9 +15,14 @@
                     [ 4 , 1],
                     [ 6 , -6] ,
                     [ 8 , -3] ,
-                    [ 10, 12]
+                    [ 10, 14]
                 ]
             }];
+        $scope.toolTipContentFunction = function(){
+        	return function(key, x, y, e, graph) {
+            	return  '<p>' +  y + ' at ' + x + '</p>'
+        	}
+        }
     });
 
 }(angular.module("pockets")));
