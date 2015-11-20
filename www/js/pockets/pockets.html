@@ -1,5 +1,6 @@
 <ion-view view-title="Pockets" id="pockets" hide-back-button="true">
     <ion-content class="padding">
+        <ion-refresher pulling-text="Pull to refresh" class="center" on-refresh="refresh()"></ion-refresher>
         <h1>MY POCKETS</h1>
         <div ng-repeat="pocket in pockets">
             <div class="card pocket {{ getCardType(pocket) }}" ng-click="details(pocket.id)">
@@ -18,6 +19,7 @@
         <div class="card pocket new-pocket" ng-click="addNew()">
             <div class="item item-text-wrap">
                 <div id="add-new-pocket">Add new pocket</div>
+                <div id="add-new"></div>
             </div>
         </div>
     </ion-content>

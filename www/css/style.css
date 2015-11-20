@@ -1,6 +1,14 @@
 /* Empty. Add your own CSS if you like */
 
 @import url(https://fonts.googleapis.com/css?family=Roboto);
+
+.icon-refreshing > ion-spinner > svg {
+  margin: auto;
+  position: absolute;
+  top: -50px; left: 0; bottom: 0; right: 0;
+  text-align: center;
+}
+
 .scroll-content {
     background: #2C3D47;
 }
@@ -165,7 +173,7 @@
 }
 
 #pockets .card.pocket.new-pocket > div {
-    background: radial-gradient(#ffe5e5, #ffe5e5, white);
+    background: radial-gradient( #FFC7B9, white);
 }
 
 .pocket #add-new-pocket {
@@ -178,4 +186,16 @@
     vertical-align: middle;
     margin-top: 20px;
     font-weight: bold;
+    padding-left: 45px;
+}
+
+.pocket #add-new {
+    width: 100%;
+    background-image: url('../img/pocket_icon_add-new.png');
+    background-position: top center;
+    background-size: 40px 40px;
+    height: 40px;
+    width: 40px;
+    margin-left: 50px;
+    margin-top: -30px;
 }
