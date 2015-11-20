@@ -23,5 +23,7 @@
     "ionic-plugin-keyboard",
     "phonegap-plugin-push"
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [
+    "ios"
+  ]
 }
