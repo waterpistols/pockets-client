@@ -5,13 +5,11 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-  <link href="css/ionic.app.css" rel="stylesheet">
+    <link href="css/ionic.app.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link href="css/style.css" rel="stylesheet">
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-  <link href="css/ionic.app.css" rel="stylesheet">
-  -->
-</head>
+    <link href="lib/nvd3/nv.d3.css" rel="stylesheet" />
+    </head>
 
 <body ng-app="pockets">
     <!--
@@ -32,6 +30,9 @@
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <script src="lib/angular-local-storage/dist/angular-local-storage.js"></script>
     <script src="lib/draggabilly/dist/draggabilly.pkgd.js"></script>
+    <script src="lib/d3/d3.js"></script>
+    <script src="lib/nvd3/nv.d3.js"></script>
+    <script src="lib/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script>
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
     <!-- your app's js -->
@@ -42,7 +43,6 @@
     <script src="js/pockets/PocketsCtrl.js"></script>
     <script src="js/pockets/PocketDetailsCtrl.js"></script>
     <script src="js/settings/SettingsCtrl.js"></script>
-
     <script src="js/settings/directives/pocketBar.js"></script>
     <script src="js/common/Config.js"></script>
     <script src="js/common/service/_ajax.js"></script>
@@ -52,4 +52,5 @@
     <script src="js/common/service/History.js"></script>
     <script src="js/common/service/Pocket.js"></script>
 </body>
+
 </html>
