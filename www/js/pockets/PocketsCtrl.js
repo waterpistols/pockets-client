@@ -2,11 +2,11 @@
     'use strict';
 
     app.controller("PocketsCtrl",
-        function($scope, $log, pocket, Pocket, $state) {
+        function($scope, $log, pocket, Pocket, $state, $interval) {
             $scope.pockets = [];
             Pocket.sync().then(function() {
                 $scope.pockets = Pocket.getPockets();
-
+                console.log($scope.pockets)
                 $scope.pockets.push({
                     id: 124,
                     date: 1448024316244,
@@ -18,6 +18,12 @@
                     amount: 150
                 });
             });
+
+            $scope.drawPercentage = function (percentage) {
+                $interval(function (percentage) {
+                    return percentage*3;
+                }, 100);
+            };
 
             $scope.refresh = function() {
                 Pocket.sync().then(function() {
@@ -38,20 +44,22 @@
             };
 
             $scope.getCardType = function(pocket) {
-                switch (pocket.category) {
+                switch (pocket.color) {
                     case 0:
                         return "pocket-rent";
                     case 1:
                         return "pocket-utilities";
                     case 2:
                         return "pocket-groceries";
+                    case 3:
+                        return "pocket-funstuff";
                     default:
                         return "pocket-new";
                 }
             };
 
-            $scope.getCardIcon = function(pocket) {
-                switch (pocket.category) {
+            $scope.getCardIcon = function(icon) {
+                switch (icon) {
                     case 0:
                         return "rent";
                     case 1:
