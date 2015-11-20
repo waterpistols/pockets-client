@@ -5,8 +5,15 @@
         function($scope, $log, pocket, Pocket, $state, $interval) {
             $scope.pockets = [];
             Pocket.sync().then(function() {
-                $scope.pockets = Pocket.getPockets();
-                console.log($scope.pockets)
+                var items = Pocket.getPockets();
+                angular.forEach(items, function(item) {
+                    if (item.percentage !== 0) {
+                        item.percentage = (item.amount - item.remaining) / 100;
+                    }
+                });
+
+                $scope.pockets = items;
+
                 $scope.pockets.push({
                     id: 124,
                     date: 1448024316244,
@@ -19,9 +26,9 @@
                 });
             });
 
-            $scope.drawPercentage = function (percentage) {
-                $interval(function (percentage) {
-                    return percentage*3;
+            $scope.drawPercentage = function(percentage) {
+                $interval(function(percentage) {
+                    return percentage * 3;
                 }, 100);
             };
 
