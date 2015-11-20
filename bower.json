@@ -9,6 +9,8 @@
     "angular-local-storage": "~0.2.3",
     "angularjs-nvd3-directives": "~0.0.7",
     "draggabilly": "~1.2.4",
-    "jquery": "~2.1.4"
+    "ionic-service-push": "~0.1.13",
+    "jquery": "~2.1.4",
+    "ngCordova": "~0.1.23-alpha"
   }
 }
