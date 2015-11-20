@@ -8,7 +8,7 @@
 
         return {
             sync: function() {
-                return _ajax.getUsers().then(
+                return _ajax.getPockets().then(
                     function success(res) {
                         if (res.data) {
                             return localStorageService.set(_keys.pockets, res.data);

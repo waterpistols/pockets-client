@@ -20,8 +20,14 @@
                         url: Config.url + "/login",
                         data: data
                     });
+                },
+                getPockets: function() {
+                    return $http({
+                        method: "GET",
+                        url: Config.url + "/pockets"
+                    });
                 }
-            }
+            };
         }
     ]);
 
