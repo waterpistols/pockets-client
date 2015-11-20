@@ -52,6 +52,14 @@
                             }
                         }
                     );
+                },
+                registerToken: function(token) {
+                    var deviceInfo = localStorageService.get(_keys.deviceInfo);
+                    deviceInfo.pushToken = token;
+                    localStorageService.set(_keys.deviceInfo, deviceInfo);
+                },
+                getDeviceInfo: function() {
+                    return localStorageService.get(_keys.deviceInfo);
                 }
             }
         }
