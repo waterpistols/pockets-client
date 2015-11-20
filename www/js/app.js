@@ -2,7 +2,7 @@ angular.module('pockets', [
         'ionic',
         'ionic.service.core',
         'ionic.service.push',
-        'ngAnimate',
+
         'LocalStorageModule',
         'nvd3ChartDirectives'
     ])
