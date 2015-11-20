@@ -9104,6 +9104,8 @@ a.button {
     left: 20%;
     width: 80%;
     background: #eee; }
+    .pocket-bar.main .pocket-bar-free {
+      display: none; }
   .pocket-bar.zoomed {
     left: 0;
     height: 100%;
@@ -9124,10 +9126,16 @@ a.button {
       border-top: solid 2px #333;
       height: 5000px;
       background: inherit; }
+    .pocket-bar .pocket-bar-separator.trigger .share {
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      z-index: 2; }
     .pocket-bar .pocket-bar-separator.trigger:after {
       content: '';
       position: absolute;
       display: block;
+      z-index: 0;
       right: 0;
       top: 0;
       height: 50px;

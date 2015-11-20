@@ -61,10 +61,19 @@
 
                 link    : function(scope, element, attrs, pocketBar) {
                     var parent      = element.parent();
+
+                    
+                    var getSiblingsShare = function() {
+                        var total = 0;
+                        for (var i = 0; i < scope.pockets.length; i++) {
+                            if (scope.pockets[i] !== scope.pocket) {
+                                total += scope.pockets[i].realShare;
+                            }
+                        }
+                        return total;
+                    };
                     var getPosition = function(pocket) {
                         var value;
-
-
 
                         if (typeof pocket.share !== 'undefined') {
                             value = (1 - pocket.share);
@@ -81,8 +90,10 @@
                     scope.pocket.position = getPosition(scope.pocket);
 
                     if (pocketBar.zoomed) {
-                        scope.$watch('pocket.position', function(newValue) {
-                            console.log(scope.pocket);
+                        scope.$watch('pocket.share', function(newValue) {
+                            element.css({
+                                'top': getPosition(scope.pocket) * 100 + '%'
+                            });
                         });
                     }
 
@@ -96,11 +107,13 @@
                         })
                             .on('dragMove', function(event, pointer, moveVector) {
                                 scope.pocket.position = element.position().top;
+                                scope.pocket.share = 1 - scope.pocket.position / parent.height();
+                                scope.pocket.realShare = 1 - scope.pocket.share + getSiblingsShare();
                                 scope.$apply();
                             });
                     }
                     element.css({
-                        'top': (scope.pocket.position * 100) + '%',
+                        'top': (scope.pocket.position * 100) + '%'
                     });
 
                 }
