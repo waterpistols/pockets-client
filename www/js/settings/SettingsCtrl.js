@@ -11,40 +11,42 @@
                 items: [
                     {
                         id: 2,
-                        share: 0.5,
+                        share: 0.3,
                         color: 'yellow'
                     },
+
                     {
                         id: 3,
-                        share: 0.1,
-                        color: 'blue'
+                        share: 0.3,
+                        color: 'cyan'
                     },
                     {
                         id: 4,
-                        share: 0.15,
+                        share: 0.2,
                         color: 'green'
-                    }
+                    },
                 ]
             };
 
             $scope.fixedPockets = {
                 total: 500,
                 items: [
+
+                    {
+                        id: 2,
+                        amount: 150,
+                        color: 'blue'
+                    },
                     {
                         id: 1,
                         amount: 50,
                         color: 'red'
                     },
-                    {
-                        id: 2,
-                        amount: 150,
-                        color: 'blue'
-                    }
                 ]
             };
 
             $scope.onMoved = function() {
-                console.log(mainPockets);
+                console.log($scope.fluidPockets);
             };
         }
     );

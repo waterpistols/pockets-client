@@ -1,9 +1,9 @@
-<ion-view view-title="Settings" class="full-height" hide-back-button="true">
+<ion-view view-title="SETTINGS" class="full-height" hide-back-button="true">
     <ion-content  scroll="false" class="padding">
         <pocket-bar class="side" fixed pockets="fixedPockets.items" total="fixedPockets.total">
             <pocket-bar class="zoomed" zoomed fixed pockets="fluidPockets.items" total="fluidPockets.total"></pocket-bar>
         </pocket-bar>
 
-        <pocket-bar class="main" pockets="fluidPockets.items" total="fluidPockets.total"></pocket-bar>
+        <pocket-bar class="main" pockets="fluidPockets.items" total="fluidPockets.total" on-moved="onMoved"></pocket-bar>
     </ion-content>
 </ion-view>
