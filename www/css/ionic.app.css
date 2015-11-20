@@ -9136,6 +9136,16 @@ a.button {
       background: #fff;
       border: solid 1px #333; }
 
-.list.history .item {
-  background-color: #2C3D47;
-  border: 0; }
+.history-list {
+  margin: 10px auto;
+  width: 95%; }
+  .history-list .col {
+    height: 50px; }
+  .history-list .item-date {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px; }
+  .history-list .item-amount {
+    line-height: 40px; }
+  .history-list .item-type {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px; }

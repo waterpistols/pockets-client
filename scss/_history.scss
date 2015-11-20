@@ -1,6 +1,19 @@
-.list.history {
-    .item {
-        background-color: #2C3D47;
-        border: 0;
+.history-list {
+    margin: 10px auto;
+    width: 95%;
+
+    .col {
+        height: 50px;
+    }
+    .item-date {
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+    }
+    .item-amount {
+        line-height: 40px;
+    }
+    .item-type {
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
     }
 }

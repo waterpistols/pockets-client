@@ -1,13 +1,16 @@
 <ion-view view-title="History" hide-back-button="true">
-    <ion-content class="">
-        <div class="list history">
-          <a class="item" href="javascript:void(0)" ng-repeat="hist in history | orderBy:'date':true">
-              <div class="row">
-                  <div class="col col-20" style="background: green">{{ hist.date | date:'yyyy-MM-dd HH:mm' }}</div>
-                  <div class="col col-50" style="background: blue">{{ hist.amount }}</div>
-                  <div class="col" style="background: red">{{ hist.name }}</div>
-              </div>
-          </a>
+    <ion-content >
+        <div class="row history-list" ng-repeat="hist in history | orderBy:'date':true">
+            <div class="item-date col col-20" style="background: green">
+                {{ hist.date | date:'dd MMM' }}<br/>
+                {{ hist.date | date:'HH:mm' }}
+            </div>
+            <div class="item-amount col col-50" style="background: blue">
+                ${{ hist.amount }}
+            </div>
+            <div class="item-type col" style="background: red">
+                {{ hist.name }}
+            </div>
         </div>
     </ion-content>
 </ion-view>
