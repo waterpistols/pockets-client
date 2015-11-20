@@ -2,10 +2,7 @@
 (function(app) {
     'use strict';
 
-    app.factory("_ajax", [
-        "$http",
-        "Config",
-        function($http, Config) {
+    app.factory("_ajax", function($http, $rootScope, Config, $q) {
 
             return {
                 getUsers: function() {
@@ -20,9 +17,31 @@
                         url: Config.url + "/login",
                         data: data
                     });
+                },
+                getHistory: function() {
+                    // return $http({
+                    //     method: "GET",
+                    //     url: Config.url + "/history",
+                    //     headers: {
+                    //         "X-apikey": $rootScope.authInfo.token
+                    //     }
+                    // });
+                    return $q.resolve({ data: [{
+                        id: 123,
+                        date: 1448024416244,
+                        pocketId: 222,
+                        name: "some fancy transaction",
+                        amount: 1000
+                    },{
+                        id: 124,
+                        date: 1448024416244,
+                        pocketId: 222,
+                        name: "some fancy transaction",
+                        amount: 1000
+                    }]});
                 }
             }
         }
-    ]);
+    );
 
 }(angular.module("pockets")));

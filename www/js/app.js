@@ -72,6 +72,11 @@ angular.module('pockets', [
                     templateUrl: 'js/history/history.html',
                     controller: 'HistoryCtrl'
                 }
+            },
+            resolve: {
+                history: function(History) {
+                    return true;
+                }
             }
         })
         .state('tab.settings', {
