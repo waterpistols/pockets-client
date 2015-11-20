@@ -71,6 +71,7 @@
                         amount: 250.12,
                         balance: 10,
                         type: "Fixed Rate",
+                        percentage: 20,
                         category: 0,
                         icon: 0
                     }, {
@@ -81,6 +82,7 @@
                         type: "Percentage - 20%",
                         balance: 30,
                         amount: 150,
+                        percentage: 20,
                         category: 1,
                         icon: 1
                     },{
@@ -91,6 +93,7 @@
                         amount: 33,
                         balance: 10,
                         type: "Fixed Rate",
+                        percentage: 20,
                         category: 2,
                         icon: 0
                     }]

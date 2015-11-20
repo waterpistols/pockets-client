@@ -16,6 +16,21 @@
     text-align: left;
 }
 
+#pockets h1 {
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 13px;
+    color: #7E8595;
+    line-height: 18px;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+
+.card.pocket {
+    margin: 10px 0 10px 0;
+}
+
 .card.pocket .item {
     height: 90px;
 }
@@ -38,6 +53,10 @@
 
 .pocket-funstuff .item {
     background-image: linear-gradient(-180deg, #2790A6 0%, #2DA8C2 100%);
+}
+
+.pocket-new .item {
+    background-image: linear-gradient(-180deg, #1790A6 0%, #1DA8C2 100%);
 }
 
 .item .rent {
@@ -73,9 +92,20 @@
     margin-left: -5px;
 }
 
+.item .new {
+    background-image: url('../img/pocket_icon_new.png');
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 20px 23px;
+    height: 25px;
+    width: 24px;
+    margin-top: 17px;
+    margin-left: -5px;
+}
+
 .pocket .item .name {
     font-family: Roboto;
-    font-weight: 400;
+    font-weight: bold;
     font-size: 21px;
     color: #FFFFFF;
     line-height: 28px;
@@ -115,4 +145,36 @@
     line-height: 16px;
     text-align: right;
     margin-right: 8px;
+}
+
+.pocket .pocket-percentage {
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 6px;
+    width: 120%;
+    border: 0;
+    position: absolute;
+    bottom: 0;
+    margin-left: -20px;
+}
+.pocket .percentage {
+    height: 6px;
+    border: 0;
+    position: absolute;
+    bottom: 0;
+    margin-left: -20px;
+}
+
+#pockets .card.pocket.new-pocket > div {
+    background: radial-gradient(#ffe5e5, #ffe5e5, white);
+}
+
+.pocket #add-new-pocket {
+    text-align: center;
+    font-family: Roboto;
+    font-size: 15px;
+    color: #FF4A00;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 20px;
 }
