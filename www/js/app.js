@@ -6,7 +6,7 @@ angular.module('pockets', [
     'LocalStorageModule',
     'nvd3ChartDirectives'
 ])
-.run(function($ionicPlatform, User) {
+.run(function($ionicPlatform, User, Notification) {
     $ionicPlatform.ready(function() {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -19,21 +19,19 @@ angular.module('pockets', [
             // org.apache.cordova.statusbar required
             StatusBar.styleDefault();
         }
-        //
-        // Ionic push
-        //
-        var push = new Ionic.Push({
-          "debug": true
-        });
 
-        push.register(function(token) {
-          console.log("Device token:",token.token);
-        });
         User.sync();
-
+        Notification.register();
     });
 })
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $ionicAppProvider, $urlRouterProvider, Config) {
+
+    $ionicAppProvider.identify({
+        app_id: Config.ionic.app_id,
+        api_key: Config.ionic.api_key,
+        dev_push: Config.ionic.dev_push
+    });
+
     $stateProvider
         .state('tab', {
             url: '/tab',
