@@ -3,7 +3,9 @@ angular.module('pockets', [
     'LocalStorageModule'
 ])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, History) {
+    History.sync();
+    
     $ionicPlatform.ready(function() {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -73,7 +75,7 @@ angular.module('pockets', [
             },
             resolve: {
                 history: function(History) {
-                    return true;
+                    return History.getHistory();
                 }
             }
         })

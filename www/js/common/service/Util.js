@@ -1,11 +1,11 @@
 (function(app) {
     'use strict';
 
-    app.factory("Util", function(_ajax, localStorageService, $q, $rootScope, User, Pocket) {
-
+    app.factory("Util", function(Pocket, History) {
         return {
             syncAll: function() {
                 Pocket.sync();
+                History.sync();
             }
         };
     });
