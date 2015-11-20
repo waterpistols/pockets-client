@@ -4,10 +4,10 @@
             <div class="card pocket {{ getCardType(pocket) }}">
                 <div class="item item-text-wrap">
                     <div class="{{ getCardIcon(pocket)}}"></div>
-                      <div class="name">{{ pocket.name }}</div>
-                    <!-- {{ pocket.balance }}  -->
-                      <div class="type">{{ pocket.type }}</div>
-                      <div class="amount">${{ pocket.amount }}</div>
+                    <div class="name">{{ pocket.name }}</div>
+                    <div class="type">{{ pocket.type }}</div>
+                    <div class="amount">${{ pocket.amount }}
+                        <br><span ng-show="{{ pocket.amount }}">available</span></div>
                 </div>
             </div>
         </div>
