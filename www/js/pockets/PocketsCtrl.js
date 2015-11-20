@@ -7,9 +7,7 @@
             Pocket.sync().then(function() {
                 var items = Pocket.getPockets();
                 angular.forEach(items, function(item) {
-                    if (item.percentage !== 0) {
-                        item.percentage = (item.amount - item.remaining) / 100;
-                    }
+                    item.percentage = !item.percent ? (item.amount - item.remaining) / 100 : item.percent;
                 });
 
                 $scope.pockets = items;
