@@ -90,6 +90,6 @@ angular.module('pockets', [
         });
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/tab/cashboard');
+    $urlRouterProvider.otherwise('/tab/settings');
 
 });

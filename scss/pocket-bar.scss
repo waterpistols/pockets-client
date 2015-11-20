@@ -14,23 +14,34 @@
         width: 80%;
         background: #eee;
     }
-    .separator {
-        position: absolute;
-        left: 0;
+    .pocket-bar-separator {
+        position: relative;
         width: 100%;
-        height: 5px;
-        background: #333;
+        height: 25px;
 
-        .trigger {
+        &:before {
+            content: '';
             position: absolute;
             display: block;
-            right: 0;
-            top: 50%;
-            height: 50px;
-            width: 50px;
-            margin-top: -25px;
-            background: #fff;
-            border: solid 1px #333;
+            top: 0;
+            width: 100%;
+            border-top: solid 2px #333;
+        }
+
+        &.trigger {
+
+            &:after {
+                content: '';
+                position: absolute;
+                display: block;
+                right: 0;
+                top: 0;
+                height: 50px;
+                width: 50px;
+                margin-top: -25px;
+                background: #fff;
+                border: solid 1px #333;
+            }
         }
     }
 }

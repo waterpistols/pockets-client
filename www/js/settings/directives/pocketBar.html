@@ -1,2 +1,6 @@
-<div class="pocket-bar" ng-transclude>
+<div class="pocket-bar">
+
+    <canvas class="canvas-bar pocket-bar-regions"></canvas>
+    <div class="pocket-bar-separator" ng-repeat="pocket in pockets"
+                          ng-class="pocket.id"></div>
 </div>
