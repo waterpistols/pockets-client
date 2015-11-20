@@ -47,7 +47,6 @@
                     };
                     $timeout(function() {
                         var height = getHighestPosition();
-
                         element.height(height);
                     });
                 }
@@ -61,6 +60,7 @@
 
                 link    : function(scope, element, attrs, pocketBar) {
                     var parent      = element.parent();
+
 
 
                     scope.pocket.realShare = scope.pocket.share;
@@ -107,6 +107,7 @@
 
                     if (pocketBar.zoomed) {
                         scope.$watch('pocket.share', function(newValue) {
+
                             element.css({
                                 'top': getPosition(scope.pocket) * 100 + '%'
                             });
