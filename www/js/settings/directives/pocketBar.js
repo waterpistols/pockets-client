@@ -27,6 +27,15 @@
                 }
             }
         })
+        .filter('percentShow', function() {
+
+            return function(input) {
+                if (typeof input === 'undefined') {
+                    return '';
+                }
+                return (input * 100).toFixed(0) + '%';
+            };
+        })
         .directive("pocketBarFree", function($timeout) {
             return {
                 restrict: 'C',
@@ -53,6 +62,11 @@
             };
         })
         .directive("pocketBarSeparator", function($rootScope) {
+            Draggabilly.prototype.containDrag = function( axis, drag, grid ) {
+                return drag;
+                console.log('aaa');
+            };
+
             return {
                 restrict: 'C',
                 replace : true,
@@ -60,8 +74,6 @@
 
                 link    : function(scope, element, attrs, pocketBar) {
                     var parent      = element.parent();
-
-
 
                     scope.pocket.realShare = scope.pocket.share;
 
@@ -122,6 +134,7 @@
                             axis       : 'y',
                             containment: parent
                         })
+                            
                             .on('dragMove', function(event, pointer, moveVector) {
                                 $rootScope.$broadcast('updateShare');
                             })
@@ -130,7 +143,7 @@
                             });
                     }
                     element.css({
-                        'top': (scope.pocket.position * 100) + '%'
+                        'top': (scope.pocket.position) * parent.height() + 'px'
                     });
 
 

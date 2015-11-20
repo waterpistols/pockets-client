@@ -12,19 +12,22 @@
                     {
                         id: 2,
                         share: 0.3,
-                        color: 'yellow'
+                        label: 'Groceries',
+                        color: '#8BB943'
                     },
 
                     {
                         id: 3,
                         share: 0.3,
-                        color: 'cyan'
+                        label: 'Shopping',
+                        color: '#DC576B'
                     },
                     {
                         id: 4,
                         share: 0.2,
-                        color: 'green'
-                    },
+                        label: 'Fun Stuff',
+                        color: '#299AB1'
+                    }
                 ]
             };
 
