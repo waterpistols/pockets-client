@@ -2,7 +2,7 @@ angular.module('pockets', [
         'ionic',
         'ionic.service.core',
         'ionic.service.push',
-        'ngAnimate',
+
         'LocalStorageModule',
         'nvd3ChartDirectives'
     ])
@@ -98,9 +98,14 @@ angular.module('pockets', [
                         templateUrl: 'js/settings/settings.html',
                         controller: 'SettingsCtrl'
                     }
+                },
+                resolve: {
+                    percentages: function(Percentages) {
+                        return Percentages.sync();
+                    }
                 }
             });
 
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/tab/cashboard');
+        $urlRouterProvider.otherwise('/tab/settings');
     });

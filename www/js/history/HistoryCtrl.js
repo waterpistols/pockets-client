@@ -2,7 +2,7 @@
 (function(app) {
     'use strict';
 
-    app.controller("HistoryCtrl", function($scope, history, pockets, $ionicModal) {
+    app.controller("HistoryCtrl", function($scope, history, pockets, $ionicModal, History) {
         $scope.history = history;
         $scope.pockets = pockets;
 
@@ -13,14 +13,27 @@
             $scope.modal = modal;
         });
 
-        $scope.addToPocket = function() {
-            console.log("add to pockets")
+        $scope.addToPocket = function(id) {
+            $scope.transactionId = id;
             $scope.modal.show();
         }
 
-        $scope.selectPocket = function() {
+        $scope.selectPocket = function( pocketId ) {
+            console.log("poc id: ", pocketId);
+            console.log("tr id: ", $scope.transactionId);
+
+            History.addPocket($scope.transactionId, pocketId);
+
             $scope.modal.hide();
+            //
+            // reload transactions
+            //
+            $scope.history = History.getHistory();
         };
+
+        $scope.cancel = function() {
+            $scope.modal.hide();
+        }
     });
 
 }(angular.module("pockets")));
