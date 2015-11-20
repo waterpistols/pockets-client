@@ -1,8 +1,7 @@
 angular.module('pockets', [
-        'ionic', 'ionic.service.core',
-
+        'ionic',
+        'ionic.service.core',
         'ionic.service.push',
-
         'LocalStorageModule',
         'nvd3ChartDirectives'
     ])
@@ -87,6 +86,9 @@ angular.module('pockets', [
                 resolve: {
                     history: function(History) {
                         return History.getHistory();
+                    },
+                    pockets: function(Pocket) {
+                        return Pocket.getById();
                     }
                 }
             })

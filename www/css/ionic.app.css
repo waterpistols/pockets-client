@@ -9092,6 +9092,27 @@ a.button {
 .full-height .scroll {
   height: 100%; }
 
+.card.pocket {
+  margin: 10px 0 10px 0; }
+
+.card.pocket .item {
+  height: 90px; }
+
+.pocket-rent .item {
+  background-image: linear-gradient(-180deg, #E16437 0%, #F76E3C 100%); }
+
+.pocket-utilities .item {
+  background-image: linear-gradient(-180deg, #77838A 0%, #839098 100%); }
+
+.pocket-groceries .item {
+  background-image: linear-gradient(-180deg, #84B040 0%, #98CB4A 100%); }
+
+.pocket-shopping .item {
+  background-image: linear-gradient(-180deg, #D55467 0%, #F05F74 100%); }
+
+.pocket-funstuff .item {
+  background-image: linear-gradient(-180deg, #2790A6 0%, #2DA8C2 100%); }
+
 .pocket-bar-wrapper {
   position: absolute;
   top: 0;
@@ -9176,12 +9197,37 @@ a.button {
     line-height: 40px;
     color: #333; }
   .history-list .item-action {
+    padding: 0;
     border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    background: #EBEFE6; }
+    border-bottom-right-radius: 6px; }
+    .history-list .item-action .mypocket {
+      border-top-right-radius: 6px;
+      border-bottom-right-radius: 6px;
+      height: 50px;
+      background-color: #68C77D;
+      color: white;
+      text-align: center;
+      font-size: 10px;
+      position: relative;
+      width: 100%; }
+      .history-list .item-action .mypocket .brand {
+        position: absolute;
+        left: 5px;
+        right: 25px;
+        bottom: 2px;
+        text-align: center; }
+      .history-list .item-action .mypocket .chevrone {
+        position: absolute;
+        right: 8px;
+        top: 15px;
+        font-size: 20px; }
     .history-list .item-action .add {
+      border-top-right-radius: 6px;
+      border-bottom-right-radius: 6px;
+      height: 50px;
+      background: #EBEFE6;
       text-align: center;
       font-size: 32px;
       font-family: Roboto-Light;
       color: #6B6B6B;
-      line-height: 38px; }
+      line-height: 48px; }

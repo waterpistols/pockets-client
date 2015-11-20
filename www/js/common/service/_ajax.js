@@ -39,13 +39,13 @@
                     },{
                         id: 125,
                         date: 1443022316244,
-                        pocketId: 222,
+                        pocketId: 123,
                         name: "Filantropica SA",
                         amount: 22
                     },{
                         id: 126,
                         date: 1441022316244,
-                        pocketId: 222,
+                        pocketId: 124,
                         name: "Gigi polasjk grup",
                         amount: 454
                     }

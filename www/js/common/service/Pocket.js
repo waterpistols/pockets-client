@@ -20,6 +20,15 @@
             },
             getPockets: function() {
                 return localStorageService.get(_keys.pockets);
+            },
+            getById: function() {
+                var pockets = localStorageService.get(_keys.pockets);
+                var result = {};
+
+                for (var i = 0 ; i < pockets.length; i++ ) {
+                    result[ pockets[i].id ] = pockets[i];
+                }
+                return result;
             }
         };
     });
