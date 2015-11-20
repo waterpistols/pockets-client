@@ -2,12 +2,7 @@
 (function(app) {
     'use strict';
 
-    app.controller("LoginCtrl", [
-        "$scope",
-        "$state",
-        "$ionicPopup",
-        "User",
-        function($scope, $state, $ionicPopup, User, Util) {
+    app.controller("LoginCtrl", function($scope, $state, $ionicPopup, User, Util) {
             $scope.data = {};
             $scope.login = function() {
                 if ( ! ($scope.data.username && $scope.data.password) ) {
@@ -30,6 +25,6 @@
                 });
             };
         }
-    ]);
+    );
 
 }(angular.module("pockets")));

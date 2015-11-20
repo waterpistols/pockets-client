@@ -30,6 +30,7 @@
                 replace : true,
                 require : '^pocketBar',
                 link: function(scope, element, attrs) {
+
                 }
             }
         })

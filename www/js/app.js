@@ -70,6 +70,11 @@ angular.module('pockets', [
                     templateUrl: 'js/history/history.html',
                     controller: 'HistoryCtrl'
                 }
+            },
+            resolve: {
+                history: function(History) {
+                    return History.getHistory();
+                }
             }
         })
         .state('tab.settings', {
@@ -90,6 +95,6 @@ angular.module('pockets', [
         });
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/tab/settings');
+    $urlRouterProvider.otherwise('/tab/cashboard');
 
 });
