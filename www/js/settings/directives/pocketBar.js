@@ -40,7 +40,6 @@
             return {
                 restrict: 'C',
                 link: function(scope, element, attrs) {
-                    var parent      = element.parent();
                     scope.height = 0;
 
                     var getHighestPosition = function() {
@@ -75,7 +74,7 @@
                 link    : function(scope, element, attrs, pocketBar) {
                     var parent      = element.parent();
 
-                    scope.pocket.realShare = scope.pocket.share;
+                    scope.pocket.realShare = scope.pocket.percent;
 
                     var getSiblingsShare = function() {
                         var total = 0;
@@ -86,7 +85,7 @@
                         }
 
                         for (var i = scope.$index + 1; i < scope.pockets.length; i++) {
-                            total += scope.pockets[i].share;
+                            total += scope.pockets[i].percent;
                         }
 
 
@@ -95,22 +94,22 @@
                     var getPosition = function(pocket) {
                         var value;
 
-                        if (typeof pocket.share !== 'undefined') {
-                            value = (1 - pocket.share- getSiblingsShare());
-                        } else if (typeof pocket.amount !== 'undefined') {
+                        if (pocket.category === 'Percentage') {
+                            value = (1 - pocket.percent - getSiblingsShare());
+                        } else {
                             value = (1 - pocket.amount / scope.total);
                         }
 
                         if (value < 0) {
-                            value = 10;
+                            value = 0;
                         }
                         return value;
                     };
 
                     var updateRealShare = function() {
                         scope.pocket.position = element.position().top;
-                        scope.pocket.share = 1 - scope.pocket.position / parent.height() - getSiblingsShare();
-                        scope.pocket.share = Math.round(scope.pocket.share * 100) / 100;
+                        scope.pocket.percent = 1 - scope.pocket.position / parent.height() - getSiblingsShare();
+                        scope.pocket.percent = Math.round(scope.pocket.percent * 100) / 100;
                         scope.$apply();
                     };
                     scope.pocket.position = getPosition(scope.pocket);
@@ -118,7 +117,7 @@
 
 
                     if (pocketBar.zoomed) {
-                        scope.$watch('pocket.share', function(newValue) {
+                        scope.$watch('pocket.percent', function(newValue) {
 
                             element.css({
                                 'top': getPosition(scope.pocket) * 100 + '%'
@@ -134,7 +133,7 @@
                             axis       : 'y',
                             containment: parent
                         })
-                            
+
                             .on('dragMove', function(event, pointer, moveVector) {
                                 $rootScope.$broadcast('updateShare');
                             })

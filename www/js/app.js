@@ -98,6 +98,11 @@ angular.module('pockets', [
                         templateUrl: 'js/settings/settings.html',
                         controller: 'SettingsCtrl'
                     }
+                },
+                resolve: {
+                    percentages: function(Percentages) {
+                        return Percentages.sync();
+                    }
                 }
             });
 
