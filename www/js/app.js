@@ -1,6 +1,7 @@
 angular.module('pockets', [
     'ionic',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'nvd3ChartDirectives'
 ])
 .run(function($ionicPlatform, User) {
     User.sync();
