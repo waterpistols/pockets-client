@@ -9151,7 +9151,12 @@ a.button {
     height: 50px; }
   .history-list .item-date {
     border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px; }
+    border-bottom-left-radius: 6px;
+    color: #A3A3A3; }
+    .history-list .item-date .date {
+      font-size: 11px; }
+    .history-list .item-date .time {
+      font-size: 9px; }
   .history-list .item-amount {
     line-height: 40px; }
   .history-list .item-type {

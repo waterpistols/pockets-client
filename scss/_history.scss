@@ -8,6 +8,13 @@
     .item-date {
         border-top-left-radius: 6px;
         border-bottom-left-radius: 6px;
+        color: $gray1;
+        .date {
+            font-size: 11px;
+        }
+        .time {
+            font-size: 9px;
+        }
     }
     .item-amount {
         line-height: 40px;

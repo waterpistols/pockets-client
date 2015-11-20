@@ -2,8 +2,8 @@
     <ion-content >
         <div class="row history-list" ng-repeat="hist in history | orderBy:'date':true">
             <div class="item-date col col-20" style="background: green">
-                {{ hist.date | date:'dd MMM' }}<br/>
-                {{ hist.date | date:'HH:mm' }}
+                <span class="date">{{ hist.date | date:'dd MMM' }}</span><br/>
+                <span class="time">{{ hist.date | date:'HH:mm' }}</span>
             </div>
             <div class="item-amount col col-50" style="background: blue">
                 ${{ hist.amount }}
