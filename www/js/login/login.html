@@ -1,0 +1,25 @@
+<ion-view hide-back-button="true">
+    <ion-content class="padding">
+
+        <div class="logo">
+            <img src="img/logo.png" alt="" style="width: 100%;"/>
+        </div>
+
+        <div class="list list-inset">
+            <label class="item item-input">
+                <input type="email" placeholder="Nume utilizator" ng-model="data.username">
+            </label>
+            <label class="item item-input">
+                <input type="password" placeholder="Parola" ng-model="data.password">
+            </label>
+        </div>
+        <button class="button button-block button-calm" ng-click="login()">
+            <i class="icon ion-log-in"></i>
+            Login
+        </button>
+    </ion-content>
+
+    <div class="bar bar-footer" style="background-color: #dfdfdf">
+        <div class="title">Copyright &copy; 2015 ing-pockets.ro</div>
+    </div>
+</ion-view>
