@@ -36,6 +36,10 @@ ion-header-bar {
 
 ion-header-bar > button {
     color: #7E8595 !important;
+    font-size: 10px !important;
+}
+ion-header-bar > button > .icon{
+    font-size: 5px !important;
 }
 
 ion-header-bar .title {
@@ -178,6 +182,7 @@ ion-header-bar .title {
     position: absolute;
     bottom: 0;
     margin-left: -20px;
+    transition: width 1s;
 }
 
 #pockets .card.pocket.new-pocket > div {
