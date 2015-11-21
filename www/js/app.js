@@ -11,7 +11,7 @@ angular.module('pockets', [
 
         $rootScope.$on('$stateChangeStart', function(event, toState) {
             $rootScope.loadingClass = true;
-            console.log(toState);
+            $rootScope.altNav = toState.altNav;
         });
         $rootScope.$on('$stateChangeSuccess', function() {
             $rootScope.loadingClass = false;

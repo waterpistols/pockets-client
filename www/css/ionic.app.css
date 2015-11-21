@@ -9113,6 +9113,19 @@ a.button {
   font-weight: 400;
   font-family: 'Roboto'; }
 
+.alt-nav .bar-header, .alt-nav .title {
+  background: #FFFFFF !important; }
+
+.alt-nav ion-content:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 65px;
+  background: #fff; }
+
 .pocket-item .percentage {
   transition: width 1s ease;
   width: 0; }
