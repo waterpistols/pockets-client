@@ -1,13 +1,12 @@
 <ion-view view-title="HISTORY" hide-back-button="true">
     <ion-content >
+        <ion-refresher pulling-text="Pull to refresh" class="center" on-refresh="refresh()"></ion-refresher>
         <div class="divider">
             THIS WEEK
             <hr>
         </div>
 
         <div class="row history-list" ng-repeat="hist in history | orderBy:'date':true">
-
-
             <div class="item-date col col-20">
                 <div class="date-container">
                     <span class="date">{{ hist.date | date:'dd MMM' }}</span><br/>
@@ -18,7 +17,7 @@
             <div class="item-amount col col-50">
                 <span class="credit" ng-show="hist.type === 'Credit'">+</span>
                 <span class="debit" ng-show="hist.type === 'Debit'">-</span>
-                ${{ hist.amount }}
+                {{ hist.amount | currency }}
             </div>
 
             <div class="item-action col" ng-click="addToPocket(hist._id)">

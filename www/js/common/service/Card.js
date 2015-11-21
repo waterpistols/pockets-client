@@ -25,6 +25,8 @@
                     return "utilities";
                 case 2:
                     return "groceries";
+                case 3:
+                    return "funstuff";
                 default:
                     return "new";
             }
