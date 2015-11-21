@@ -5,20 +5,20 @@
                 <div class="{{ getCardIcon(pocket.color)}}"></div>
                 <div class="name">{{ pocket.name }}</div>
                 <div class="category">{{ pocket.category }}</div>
-                <div class="amount">${{ pocket.amount }}
+                <div class="amount">{{ pocket.amount | currency }}
                     <br><span ng-show="{{ pocket.amount }}">available</span></div>
                 <div ng-show="{{ pocket.amount }}" class="pocket-percentage">
                 </div>
                 <div class="percentage" style="background: white" ng-style="{ 'width': pocket.percentage + '%' }"></div>
             </div>
         </div>
-        <ul>
-            <li><a href="" ng-click="setTab('history')">History</a></li>
-            <li><a href="" ng-click="setTab('locations')">Locations</a></li>
-            <li><a href="" ng-click="setTab('timeframe')">Timeframe</a></li>
+        <ul class="tab-links">
+            <li ng-class="{active: selectedTab === 'history'}"><a href="" ng-click="setTab('history')">History</a></li>
+            <li ng-class="{active: selectedTab === 'locations'}"><a href="" ng-click="setTab('locations')">Locations</a></li>
+            <li ng-class="{active: selectedTab === 'timeframe'}"><a href="" ng-click="setTab('timeframe')">Timeframe</a></li>
         </ul>
-        <div class="tab" ng-class="{active: selectedTab === 'history'}">
-            <div class="item"
+        <div class="tab-panes" ng-class="{active: selectedTab === 'history'}">
+            <div class="tab-pane"
                  ng-repeat="pocket in history.pockets" ng-style="getColor(pocket.color)">
                 <i ng-class="getIcon(pocket.icon)" class="pkt-icon-large"></i>
                 {{ pocket.name }}

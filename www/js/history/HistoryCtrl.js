@@ -1,4 +1,3 @@
-
 (function(app) {
     'use strict';
 
@@ -13,12 +12,20 @@
             $scope.modal = modal;
         });
 
+
+        $scope.refresh = function() {
+            History.sync().finally(function() {
+                $scope.history = History.getHistory();
+                $scope.$broadcast('scroll.refreshComplete');
+            });
+        };
+
         $scope.addToPocket = function(id) {
             $scope.transactionId = id;
             $scope.modal.show();
         }
 
-        $scope.selectPocket = function( pocketId ) {
+        $scope.selectPocket = function(pocketId) {
             History.addPocket($scope.transactionId, pocketId);
 
             $scope.modal.hide();
@@ -33,11 +40,13 @@
         };
 
         $scope.getIcon = function(id) {
-            return Config.pockets.icon[ id ];
+            return Config.pockets.icon[id];
         }
 
         $scope.getColor = function(id) {
-            return { 'background-color': Config.pockets.color[ id ] };
+            return {
+                'background-color': Config.pockets.color[id]
+            };
         }
     });
 

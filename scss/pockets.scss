@@ -16,3 +16,36 @@
         opacity:1;
     }
 }
+.tab-links {
+    display: table;
+    list-style: none;
+    width: 100%;
+
+
+    li {
+        display: table-cell;
+        border:1px solid #7E8595;
+        color: #7E8595;
+        padding: 5px;
+        text-align: center;
+
+        a {
+            text-decoration: none;
+            color: #7E8595;
+        }
+
+        &.active {
+            boder-color: #fff;
+            a {
+                color: #fff;
+            }
+        }
+    }
+}
+.tab-panes {
+    display: none;
+
+    &:active {
+        display: block;
+    }
+}

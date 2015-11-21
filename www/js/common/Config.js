@@ -3,8 +3,8 @@
     'use strict';
 
     app.constant("Config", {
-        url: "http://localhost:8100/v1",
-        //url: "https://192.168.145.21/v1"
+        //url: "http://localhost:8100/v1",
+        url: "http://192.168.145.21/v1",
         ionic: {
             // The App ID (from apps.ionic.io) for the server
             app_id: '7fce942c',

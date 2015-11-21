@@ -1,4 +1,4 @@
-<ion-view view-title="CASHBOARD" id="Cashboard" hide-nav-bar="false" hide-back-button="true">
+<ion-view view-title="CASHBOARD" id="Cashboard" hide-nav-bar="false" hide-back-button="true" ng-cloak>
     <ion-content class="padding">
         <div id="cashboard-details">
             <div id="balance">{{ balance.safeToSpend | currency }} <span>{{ balance.balance | currency}}</span></div>
@@ -14,7 +14,7 @@
                         <div class="{{ getCardIcon(pocket.color)}}"></div>
                         <div class="name">{{ pocket.name }}</div>
                         <div class="category">{{ pocket.category }}</div>
-                        <div class="amount">${{ pocket.amount }}
+                        <div class="amount">{{ pocket.amount | currency }}
                             <br><span ng-show="{{ pocket.amount }}">available</span>
                         </div>
                         <div ng-show="{{ pocket.amount }}" class="pocket-percentage">

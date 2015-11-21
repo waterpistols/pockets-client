@@ -8,7 +8,13 @@
 
                 if( ! user.user_id) {
                     var deviceInfo = User.getDeviceInfo();
-                    user.user_id = deviceInfo.deviceId;
+                    if (deviceInfo!== null && deviceInfo.hasOwnProperty('deviceId'))  {
+                        user.user_id = deviceInfo.deviceId;
+                    }
+                    else
+                    {
+                        user.user_id = Math.random().toString();
+                    }
                 }
                // if(!$rootScope.auth.ionic.push.token) {
                     //only need to register once

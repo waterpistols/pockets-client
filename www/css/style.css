@@ -14,7 +14,9 @@
     right: 0;
     text-align: center;
 }
-
+.login-page {
+    padding-top: 80px;
+}
 .scroll-content {
     background: #2C3D47;
 }
@@ -117,8 +119,16 @@ ion-header-bar .title {
     margin-top: 17px;
 }
 
+.item .funstuff {
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 20px 23px;
+    height: 25px;
+    width: 24px;
+    margin-top: 17px;
+}
+
 .item .new {
-    background-image: url('../img/pocket_icon_new.png');
     background-repeat: no-repeat;
     background-position: top left;
     background-size: 20px 23px;
