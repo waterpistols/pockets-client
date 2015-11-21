@@ -7,9 +7,15 @@ angular.module('pockets', [
         'LocalStorageModule',
         'nvd3ChartDirectives'
     ])
-    .run(function($ionicPlatform, User, Notification) {
+    .run(function($ionicPlatform, $rootScope, User, Notification) {
         User.sync();
 
+        $rootScope.$on('$stateChangeStart', function() {
+            $rootScope.loadingClass = true;
+        });
+        $rootScope.$on('$stateChangeSuccess', function() {
+            $rootScope.loadingClass = false;
+        });
         $ionicPlatform.ready(function() {
             if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -37,7 +43,6 @@ angular.module('pockets', [
                 templateUrl: 'templates/tabs.html',
                 resolve: {
                     auth: function($state, User) {
-
                         return User.sync().catch(
                             function() {
                                 $state.go('login');
