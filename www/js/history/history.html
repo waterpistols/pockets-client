@@ -37,9 +37,9 @@
             </ion-header-bar>
               <ion-content>
                   <div class="list">
-                      <div class="item item-icon-left" ng-click="selectPocket(pocket._id)"
-                          ng-repeat="pocket in pockets">
-                          <i class="icon ion-email"></i>
+                      <div class="item" ng-click="selectPocket(pocket._id)"
+                          ng-repeat="pocket in pockets" ng-style="getColor(pocket.color)">
+                          <i ng-class="getIcon(pocket.icon)" class="pkt-icon-large"></i>
                           {{ pocket.name }}
                       </div>
                   </div>
