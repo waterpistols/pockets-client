@@ -21,6 +21,25 @@
                 Pocket.removeLocation(item._id);
             };
 
+            $scope.timeframes = [];
+
+            if ($scope.pocket.timeFrequency) {
+                $scope.timeframes.push({
+                    timeFrequency : $scope.pocket.timeFrequency,
+                    timeFrom : $scope.pocket.timeFrom,
+                    timeTo : $scope.pocket.timeTo
+                })
+            }
+
+
+            $scope.removeTimeframe = function(item) {
+                var index = $scope.timeframes.indexOf(item);
+                if (index !== -1) {
+                    $scope.timeframes.splice(index, 1);
+                }
+                Pocket.removeLocation(item._id);
+            };
+
 
         }
     ).filter('transactionDateFirstLine', function() {

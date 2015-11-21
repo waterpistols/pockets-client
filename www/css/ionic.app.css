@@ -9173,6 +9173,12 @@ a.button {
       margin: 3px 5px; }
       .tab-pane .item .date p {
         font-size: 11px; }
+    .tab-pane .item .interval {
+      font-size: 13px;
+      color: #2C3D47; }
+    .tab-pane .item .frequency {
+      font-size: 13px;
+      color: #7E8595; }
   .tab-pane.active {
     display: block; }
   .tab-pane .item a, .tab-pane .cta {

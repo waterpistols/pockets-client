@@ -9,8 +9,9 @@ angular.module('pockets', [
     .run(function($ionicPlatform, $rootScope, User, Notification) {
         User.generateDeviceInfo();
 
-        $rootScope.$on('$stateChangeStart', function() {
+        $rootScope.$on('$stateChangeStart', function(event, toState) {
             $rootScope.loadingClass = true;
+            console.log(toState);
         });
         $rootScope.$on('$stateChangeSuccess', function() {
             $rootScope.loadingClass = false;
@@ -103,6 +104,7 @@ angular.module('pockets', [
                         controller: 'PocketDetailsCtrl'
                     }
                 },
+                altNav: true,
                 resolve: {
                     pocketDetails: function($stateParams, $ionicPopup, auth, Pocket) {
 

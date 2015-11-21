@@ -42,6 +42,7 @@
                 total: 1200,
                 items: percentages.filter(function(item) {
                     item.color = Colors[item.color];
+
                     return item.category === 'Fixed Rate';
                 })
             };

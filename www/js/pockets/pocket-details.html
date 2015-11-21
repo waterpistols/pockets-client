@@ -41,9 +41,10 @@
         </div>
         <div class="tab-pane" ng-class="{active: selectedTab === 'timeframe'}">
             <div class="item animate"
-                 ng-repeat="pocket in timeframe.pockets">
+                 ng-repeat="item in timeframes">
                 <i class="pkt-icon-time"></i>
-                {{ item.name }}
+                <span class="interval">{{ item.timeFrom }} {{ item.timeTo }}</span>
+                <span class="frequency">{{ item.timeFrequency }}</span>
                 <a href="" ng-click="removeTimeframe(item)">remove</a>
             </div>
             <a href="" class="cta"><i class="pkt-icon-time"></i>Add New Timeframe</a>
