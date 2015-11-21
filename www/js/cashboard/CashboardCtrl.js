@@ -1,12 +1,21 @@
 (function(app) {
     'use strict';
 
-    app.controller("CashboardCtrl", function($scope, $state, $rootScope, Pocket, Balance) {
+    app.controller("CashboardCtrl", function($scope, $state, $rootScope, $interval, localStorageService, Notifications, Pocket, Balance) {
         $scope.pockets = [];
         if (!$rootScope.authInfo) {
             $state.go("login");
         }
 
+        $interval(function() {
+            Notifications.get().then(function(notifications) {
+              if(notifications.length) {
+                localStorageService.set('notifications', notifications);
+                $state.go('tab.pockets');
+              }
+            });
+        }, 2000);
+        
         $scope.balance = Balance.getBalance();
         $scope.balance.percentage = ($scope.balance.safeToSpend*100)/$scope.balance.balance;
 

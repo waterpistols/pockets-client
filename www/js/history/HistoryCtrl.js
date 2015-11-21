@@ -1,9 +1,18 @@
 (function(app) {
     'use strict';
 
-    app.controller("HistoryCtrl", function($scope, history, pockets, $ionicModal, History, Config) {
+    app.controller("HistoryCtrl", function($scope, $state, history, pockets, $interval, localStorageService, Notifications, $ionicModal, History, Config) {
         $scope.history = history;
         $scope.pockets = pockets;
+
+        $interval(function() {
+            Notifications.get().then(function(notifications) {
+              if(notifications.length) {
+                localStorageService.set('notifications', notifications);
+                $state.go('tab.pockets');
+              }
+            });
+        }, 2000);
 
         $ionicModal.fromTemplateUrl('pockets-list.html', {
             scope: $scope,

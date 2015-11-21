@@ -90,7 +90,7 @@ angular.module('pockets', [
             .state('tab.pocketWizard', {
                 url: '/pocketWizard',
                 views: {
-                    'tab-pocketWizard': {
+                    'tab-pockets': {
                         templateUrl: 'js/pockets/wizard.html',
                         controller: 'PocketWizardCtrl'
                     }
