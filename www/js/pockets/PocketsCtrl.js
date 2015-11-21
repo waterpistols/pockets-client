@@ -2,10 +2,31 @@
     'use strict';
 
     app.controller("PocketsCtrl",
-        function($scope, $log, pocket, Card, Pocket, $state, $interval, $timeout) {
+        function($scope, $log, pocket, Card, Pocket, localStorageService, Notifications, $state, $timeout, $interval) {
             $scope.pockets = Pocket.getPockets();
 
             setPercentage($scope.pockets);
+
+            // Get notifications
+            $interval(function() {
+              if(localStorageService.get('notifications')) {
+                var notifications = localStorageService.get('notifications');
+                if(notifications.length) {
+                  $scope.notification = notifications[0];
+                } else {
+                  $scope.notification = false;
+                }
+                localStorageService.remove('notifications');
+              } else {
+                Notifications.get().then(function(notifications) {
+                  if(notifications.length) {
+                    $scope.notification = notifications[0];
+                  } else {
+                    $scope.notification = false;
+                  }
+                });
+              }
+            }, 7000);
 
             $scope.drawPercentage = function(percentage) {
                 $interval(function(percentage) {

@@ -1,7 +1,16 @@
 (function(app) {
     'use strict';
     app.controller("SettingsCtrl",
-        function($scope, Percentages, Colors) {
+        function($scope, $state, Percentages, $interval, localStorageService, Notifications, Colors) {
+
+          $interval(function() {
+              Notifications.get().then(function(notifications) {
+                if(notifications.length) {
+                  localStorageService.set('notifications', notifications);
+                  $state.go('tab.pockets');
+                }
+              });
+          }, 2000);
 
             var percentages = Percentages.getPercentages();
 

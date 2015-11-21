@@ -47,6 +47,13 @@
                     headers: { "X-apikey": $rootScope.authInfo.token }
                 });
             },
+            getNotifications: function() {
+                return $http({
+                    method: "GET",
+                    url: Config.url + "/notifications",
+                    headers: { "X-apikey": $rootScope.authInfo.token }
+                });
+            },
             updatePocket: function(transaction, pocket) {
                 return $http({
                     method:"PUT",

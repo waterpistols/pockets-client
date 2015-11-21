@@ -1,6 +1,9 @@
 <ion-view view-title="MY POCKETS" id="pockets" hide-back-button="true">
     <ion-content class="padding">
         <ion-refresher pulling-text="Pull to refresh" class="center" on-refresh="refresh()"></ion-refresher>
+        <div class="notification" style="background-color: rgba(244,244,244, 0.1); color: white; border-radius: 5px; padding: 15px;" ng-show="notification" >
+          Your latest transaction has been successfully completed, using your {{ pocket }} pocket.
+        </div>
         <div ng-repeat="pocket in pockets" class="pocket-item animate">
             {{pocket.id}}
             <a class="card pocket {{ getCardType(pocket) }}" ui-sref="tab.pocket({pocketId: pocket._id})">
@@ -24,4 +27,3 @@
         </div>
     </ion-content>
 </ion-view>
-
