@@ -1,0 +1,18 @@
+.pocket-item {
+    transition: all 1s ease;
+
+    .percentage {
+        transition: width 1s ease;
+        width: 0;
+    }
+
+    &.ng-enter {
+        -webkit-transform:scale(0.8);
+        opacity:0;
+    }
+
+    &.ng-enter-active {
+        -webkit-transform:scale(1);
+        opacity:1;
+    }
+}

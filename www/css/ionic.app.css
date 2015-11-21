@@ -9092,6 +9092,18 @@ a.button {
 .full-height .scroll {
   height: 100%; }
 
+.pocket-item {
+  transition: all 1s ease; }
+  .pocket-item .percentage {
+    transition: width 1s ease;
+    width: 0; }
+  .pocket-item.ng-enter {
+    -webkit-transform: scale(0.8);
+    opacity: 0; }
+  .pocket-item.ng-enter-active {
+    -webkit-transform: scale(1);
+    opacity: 1; }
+
 .pocket-bar-wrapper {
   position: absolute;
   top: 0;
