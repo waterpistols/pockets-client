@@ -2,7 +2,9 @@
     'use strict';
 
     app.controller("PocketWizardCtrl",
-        function() {
+        function($scope, $log) {
 
-        });
+        }
+    );
+
 }(angular.module("pockets")));
