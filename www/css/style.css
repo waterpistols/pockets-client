@@ -188,9 +188,6 @@ ion-header-bar .title {
     margin-left: -20px;
 }
 
-#pockets .card.pocket.new-pocket > div {
-    background: radial-gradient( #FFC7B9, white);
-}
 
 .pocket #add-new-pocket {
     text-align: center;
