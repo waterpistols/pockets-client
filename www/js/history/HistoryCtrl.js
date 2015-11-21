@@ -19,9 +19,6 @@
         }
 
         $scope.selectPocket = function( pocketId ) {
-            console.log("poc id: ", pocketId);
-            console.log("tr id: ", $scope.transactionId);
-
             History.addPocket($scope.transactionId, pocketId);
 
             $scope.modal.hide();
