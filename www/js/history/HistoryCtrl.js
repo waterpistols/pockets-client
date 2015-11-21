@@ -2,7 +2,7 @@
 (function(app) {
     'use strict';
 
-    app.controller("HistoryCtrl", function($scope, history, pockets, $ionicModal, History) {
+    app.controller("HistoryCtrl", function($scope, history, pockets, $ionicModal, History, Config) {
         $scope.history = history;
         $scope.pockets = pockets;
 
@@ -30,6 +30,14 @@
 
         $scope.cancel = function() {
             $scope.modal.hide();
+        };
+
+        $scope.getIcon = function(id) {
+            return Config.pockets.icon[ id ];
+        }
+
+        $scope.getColor = function(id) {
+            return { 'background-color': Config.pockets.color[ id ] };
         }
     });
 

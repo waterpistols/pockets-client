@@ -40,7 +40,6 @@
                 });
             },
             getPercentages: function() {
-
                 return $http({
                     method: "GET",
                     url: Config.url + "/pockets/percent",
@@ -50,7 +49,6 @@
                 });
             },
             savePercentages: function(payload) {
-
                 return $http({
                     method: "POST",
                     url: Config.url + "/pockets/percent",

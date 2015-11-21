@@ -2,13 +2,20 @@ angular.module('pockets', [
         'ionic',
         'ionic.service.core',
         'ionic.service.push',
+        'ngAnimate',
         'ksSwiper',
         'LocalStorageModule',
         'nvd3ChartDirectives'
     ])
-    .run(function($ionicPlatform, User, Notification) {
+    .run(function($ionicPlatform, $rootScope, User, Notification) {
         User.sync();
 
+        $rootScope.$on('$stateChangeStart', function() {
+            $rootScope.loadingClass = true;
+        });
+        $rootScope.$on('$stateChangeSuccess', function() {
+            $rootScope.loadingClass = false;
+        });
         $ionicPlatform.ready(function() {
             if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -28,11 +35,21 @@ angular.module('pockets', [
             dev_push: Config.ionic.dev_push
         });
 
+
         $stateProvider
             .state('tab', {
                 url: '/tab',
                 abstract: true,
-                templateUrl: 'templates/tabs.html'
+                templateUrl: 'templates/tabs.html',
+                resolve: {
+                    auth: function($state, User) {
+                        return User.sync().catch(
+                            function() {
+                                $state.go('login');
+                                return false;
+                            });
+                    }
+                }
             })
             .state('login', {
                 url: '/login',
@@ -48,7 +65,7 @@ angular.module('pockets', [
                     }
                 },
                 resolve: {
-                    pocketData: function(Pocket) {
+                    pocketData: function(auth, Pocket) {
                         return Pocket.getPockets();
                     }
                 }
@@ -62,8 +79,8 @@ angular.module('pockets', [
                     }
                 },
                 resolve: {
-                    pocket: function(Pocket) {
-                        return true;
+                    pocket: function(auth, Pocket) {
+                        return Pocket.sync();
                     }
                 }
             })
@@ -85,10 +102,10 @@ angular.module('pockets', [
                     }
                 },
                 resolve: {
-                    history: function(History) {
+                    history: function(auth, History) {
                         return History.getHistory();
                     },
-                    pockets: function(Pocket) {
+                    pockets: function(auth, Pocket) {
                         return Pocket.getById();
                     }
                 }
@@ -102,12 +119,12 @@ angular.module('pockets', [
                     }
                 },
                 resolve: {
-                    percentages: function(Percentages) {
+                    percentages: function(auth, Percentages) {
                         return Percentages.sync();
                     }
                 }
             });
 
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/tab/settings');
+        $urlRouterProvider.otherwise('/tab/cashboard');
     });

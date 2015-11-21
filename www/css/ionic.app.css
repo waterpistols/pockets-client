@@ -9092,6 +9092,18 @@ a.button {
 .full-height .scroll {
   height: 100%; }
 
+.pocket-item {
+  transition: all 1s ease; }
+  .pocket-item .percentage {
+    transition: width 1s ease;
+    width: 0; }
+  .pocket-item.ng-enter {
+    -webkit-transform: scale(0.8);
+    opacity: 0; }
+  .pocket-item.ng-enter-active {
+    -webkit-transform: scale(1);
+    opacity: 1; }
+
 .pocket-bar-wrapper {
   position: absolute;
   top: 0;
@@ -9102,6 +9114,8 @@ a.button {
   .pocket-bar-wrapper.side {
     width: 20%;
     padding-bottom: 20px; }
+    .pocket-bar-wrapper.side .handle {
+      display: none; }
     .pocket-bar-wrapper.side:after {
       content: '';
       display: block;
@@ -9205,8 +9219,7 @@ a.button {
       .pocket-bar .pocket-bar-separator.trigger .share .label {
         font-size: 15px;
         color: #fff; }
-    .pocket-bar .pocket-bar-separator.trigger:after {
-      content: '';
+    .pocket-bar .pocket-bar-separator.trigger .handle {
       position: absolute;
       display: block;
       z-index: 0;
@@ -9217,7 +9230,13 @@ a.button {
       width: 50px;
       height: 50px;
       border-radius: 100%;
-      margin-top: -25px; }
+      padding: 2px 0;
+      margin-top: -25px;
+      text-align: center;
+      box-sizing: border-box; }
+      .pocket-bar .pocket-bar-separator.trigger .handle i {
+        line-height: 0.70;
+        color: #7D8494; }
 
 .history-list {
   margin: 10px auto;
@@ -9242,6 +9261,10 @@ a.button {
     font-size: 23px;
     line-height: 40px;
     color: #333; }
+    .history-list .item-amount .credit {
+      color: #68C77D; }
+    .history-list .item-amount .debit {
+      color: #D0021B; }
   .history-list .item-action {
     padding: 0;
     border-top-right-radius: 6px;
@@ -9261,6 +9284,12 @@ a.button {
         left: 5px;
         right: 25px;
         bottom: 2px;
+        text-align: center; }
+      .history-list .item-action .mypocket .icon {
+        position: absolute;
+        left: 5px;
+        right: 25px;
+        bottom: 17px;
         text-align: center; }
       .history-list .item-action .mypocket .chevrone {
         position: absolute;
@@ -9300,3 +9329,15 @@ a.button {
     position: absolute;
     top: 10px;
     right: 10px; }
+
+body.loading:after {
+  content: '';
+  display: block;
+  position: fixed;
+  background: #2C3D47 url("../img/loader.svg") center center no-repeat;
+  background-size: 50% 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999; }

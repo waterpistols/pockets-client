@@ -2,9 +2,37 @@
     'use strict';
 
     app.controller("PocketsCtrl",
-        function($scope, $log, pocket, Pocket, $state, $interval) {
-            $scope.pockets = [];
-            syncPockets();
+        function($scope, $log, pocket, Pocket, $state, $interval, $timeout) {
+            $scope.pockets = Pocket.getPockets();
+
+                angular.forEach($scope.pockets, function(item) {
+                    item.percentage = 0;
+                    $timeout(function() {
+                        item.percentage = (item.remaining * 100) / item.amount;
+                    }, 1000);
+                });
+
+
+
+
+            //
+            //$scope.pockets.push({
+            //    id: 124,
+            //    date: 1448024316244,
+            //    pocketId: 223,
+            //    name: "New",
+            //    type: "Percentage - 20%",
+            //    balance: 30,
+            //    percentage: 90,
+            //    amount: 150
+            //});
+
+
+            $scope.drawPercentage = function(percentage) {
+                $interval(function(percentage) {
+                    return percentage * 3;
+                }, 100);
+            };
 
             $scope.refresh = function() {
                 syncPockets().finally(function(){

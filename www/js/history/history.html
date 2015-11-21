@@ -16,11 +16,16 @@
             </div>
 
             <div class="item-amount col col-50">
+                <span class="credit" ng-show="hist.type === 'Credit'">+</span>
+                <span class="debit" ng-show="hist.type === 'Debit'">-</span>
                 ${{ hist.amount }}
             </div>
 
             <div class="item-action col" ng-click="addToPocket(hist._id)">
-                <div class="mypocket" ng-show="hist.pocketId">
+                <div class="mypocket" ng-show="hist.pocketId"  ng-style="getColor(pockets[ hist.pocketId ].color)">
+                    <div class="icon">
+                        <i ng-class="getIcon( pockets[ hist.pocketId ].icon )" class="pkt-icon-large"></i>
+                    </div>
                     <div class="brand">{{ pockets[ hist.pocketId ].name }}</div>
                     <div class="chevrone ion-ios-arrow-down"></div>
                 </div>
@@ -37,9 +42,9 @@
             </ion-header-bar>
               <ion-content>
                   <div class="list">
-                      <div class="item item-icon-left" ng-click="selectPocket(pocket._id)"
-                          ng-repeat="pocket in pockets">
-                          <i class="icon ion-email"></i>
+                      <div class="item" ng-click="selectPocket(pocket._id)"
+                          ng-repeat="pocket in pockets" ng-style="getColor(pocket.color)">
+                          <i ng-class="getIcon(pocket.icon)" class="pkt-icon-large"></i>
                           {{ pocket.name }}
                       </div>
                   </div>

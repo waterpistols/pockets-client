@@ -12,6 +12,22 @@
             api_key: 'fd199eb2e0ef3e898727404bc31fa1f1a9902550bb51e8ea',
             // Set the app to use development pushes
             dev_push: false
+        },
+        pockets: {
+            color: {
+                '0': '#E16437',
+                '1': '#8BB943',
+                '2': '#DC576B',
+                '3': '#299AB1',
+                '4': '#D55467'
+           },
+           icon: {
+               0: "pkt-icon-rent",
+               1: "pkt-icon-utilities",
+               2: "pkt-icon-groceries",
+               3: "pkt-icon-fun",
+               4: "pkt-icon-shopping"
+           }
         }
     });
 

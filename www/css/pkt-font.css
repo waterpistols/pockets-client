@@ -23,6 +23,12 @@ i {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+i[class^="pkt-icon-"] {
+	font-size: 35px;
+	vertical-align: middle;
+}
+
+
 .pkt-icon-addnew:before {
 	content: "\e900";
 }

@@ -13,7 +13,7 @@
     <link href="css/pkt-font.css" rel="stylesheet">
 </head>
 
-<body ng-app="pockets">
+<body ng-app="pockets" ng-class="{'loading': loadingClass}">
     <!--
   The nav bar that will be updated as we navigate between views.
 -->
@@ -39,7 +39,7 @@
     <script src="lib/draggabilly/dist/draggabilly.pkgd.js"></script>
     <script src="lib/d3/d3.js"></script>
     <script src="lib/nvd3/nv.d3.js"></script>
-    <!--<script src="lib/angular-animate/angular-animate.js"></script>-->
+    <script src="lib/angular-animate/angular-animate.js"></script>
     <script src="lib/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script>
     <script src="lib/moment/moment.js"></script>
     <script src="lib/swiper/dist/js/swiper.js"></script>
@@ -49,6 +49,7 @@
     <!-- <script src="cordova.js"></script> -->
     <!-- your app's js -->
     <script src="js/app.js"></script>
+    <script src="js/common/service/Interceptor.js"></script>
     <script src="js/login/LoginCtrl.js"></script>
     <script src="js/cashboard/CashboardCtrl.js"></script>
     <script src="js/history/HistoryCtrl.js"></script>
