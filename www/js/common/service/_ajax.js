@@ -31,6 +31,13 @@
                     headers: { "X-apikey": $rootScope.authInfo.token }
                 });
             },
+            getBalance: function() {
+                return $http({
+                    method: "GET",
+                    url: Config.url + "/balance",
+                    headers: { "X-apikey": $rootScope.authInfo.token }
+                });
+            },
             updatePocket: function(transaction, pocket) {
                 return $http({
                     method:"PUT",

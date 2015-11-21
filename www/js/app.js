@@ -5,7 +5,6 @@ angular.module('pockets', [
         'ngAnimate',
         'ksSwiper',
         'LocalStorageModule',
-        'nvd3ChartDirectives'
     ])
     .run(function($ionicPlatform, $rootScope, User, Notification) {
         User.sync();
@@ -67,6 +66,9 @@ angular.module('pockets', [
                 resolve: {
                     pocketData: function(auth, Pocket) {
                         return Pocket.getPockets();
+                    },
+                    balanceData: function(Balance) {
+                        return Balance.getBalance();
                     }
                 }
             })
