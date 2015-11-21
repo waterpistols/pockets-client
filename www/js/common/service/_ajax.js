@@ -37,7 +37,7 @@
                     url: Config.url + "/transactions/" + transaction + "/pocket",
                     headers: { "X-apikey": $rootScope.authInfo.token },
                     data: { pocketId: pocket }
-                })
+                });
             },
             getPercentages: function() {
 

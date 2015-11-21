@@ -2,7 +2,7 @@ angular.module('pockets', [
         'ionic',
         'ionic.service.core',
         'ionic.service.push',
-
+        'ksSwiper',
         'LocalStorageModule',
         'nvd3ChartDirectives'
     ])
@@ -10,15 +10,12 @@ angular.module('pockets', [
         User.sync();
 
         $ionicPlatform.ready(function() {
-            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-            // for form inputs)
             if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                 cordova.plugins.Keyboard.disableScroll(true);
 
             }
             if (window.StatusBar) {
-                // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
             }
             Notification.register();
@@ -48,6 +45,11 @@ angular.module('pockets', [
                     'tab-cashboard': {
                         templateUrl: 'js/cashboard/cashboard.html',
                         controller: 'CashboardCtrl'
+                    }
+                },
+                resolve: {
+                    pocketData: function(Pocket) {
+                        return Pocket.getPockets();
                     }
                 }
             })
