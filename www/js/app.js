@@ -38,7 +38,6 @@ angular.module('pockets', [
                 resolve: {
                     auth: function($state, User) {
 
-
                         return User.sync().catch(
                             function() {
                                 $state.go('login');
@@ -61,7 +60,7 @@ angular.module('pockets', [
                     }
                 },
                 resolve: {
-                    pocketData: function(Pocket) {
+                    pocketData: function(auth, Pocket) {
                         return Pocket.getPockets();
                     }
                 }

@@ -4,7 +4,7 @@
     app.controller("PocketsCtrl",
         function($scope, $log, pocket, Pocket, $state, $interval, $timeout) {
             $scope.pockets = Pocket.getPockets();
-            
+
                 angular.forEach($scope.pockets, function(item) {
                     item.percentage = 0;
                     $timeout(function() {
