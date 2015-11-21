@@ -9261,6 +9261,10 @@ a.button {
     font-size: 23px;
     line-height: 40px;
     color: #333; }
+    .history-list .item-amount .credit {
+      color: #68C77D; }
+    .history-list .item-amount .debit {
+      color: #D0021B; }
   .history-list .item-action {
     padding: 0;
     border-top-right-radius: 6px;
@@ -9280,6 +9284,12 @@ a.button {
         left: 5px;
         right: 25px;
         bottom: 2px;
+        text-align: center; }
+      .history-list .item-action .mypocket .icon {
+        position: absolute;
+        left: 5px;
+        right: 25px;
+        bottom: 17px;
         text-align: center; }
       .history-list .item-action .mypocket .chevrone {
         position: absolute;
