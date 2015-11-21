@@ -3,7 +3,8 @@
 
     app.factory("Pocket", function(_ajax, localStorageService, $q) {
         var _keys = {
-            pockets: "pockets"
+            pockets: "pockets",
+            pocket: "pocket"
         };
 
         return {
@@ -18,8 +19,23 @@
                     }
                 );
             },
+            syncById: function(id) {
+                return _ajax.getPockets(id).then(
+                    function success(res) {
+                        if (res.data) {
+                            return localStorageService.set(_keys.pocket, res.data);
+                        } else {
+                            $q.reject(new Error('No data received'));
+                        }
+                    }
+                );
+            },
+
             getPockets: function() {
                 return localStorageService.get(_keys.pockets);
+            },
+            getPocket: function() {
+                return localStorageService.get(_keys.pocket);
             },
             getById: function() {
                 var pockets = localStorageService.get(_keys.pockets);
