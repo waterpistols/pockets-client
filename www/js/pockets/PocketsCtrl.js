@@ -22,7 +22,7 @@
             };
 
             $scope.addNew = function() {
-                $state.go();
+                $state.go("tab.pocketWizard");
             };
 
             $scope.details = function(id) {

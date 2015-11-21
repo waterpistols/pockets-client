@@ -86,12 +86,12 @@ angular.module('pockets', [
                     }
                 }
             })
-            .state('tab.newpocket', {
-                url: '/newpockets',
+            .state('tab.pocketWizard', {
+                url: '/pocketWizard',
                 views: {
-                    'wizard1': {
-                        templateUrl: 'js/pockets/wizard1.html',
-                        controller: 'PocketsWizardCtrl'
+                    'tab-pocketWizard': {
+                        templateUrl: 'js/pockets/wizard.html',
+                        controller: 'PocketWizardCtrl'
                     }
                 }
             })
