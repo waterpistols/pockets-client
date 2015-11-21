@@ -1,16 +1,16 @@
 (function(app) {
     'use strict';
 
-    app.controller("CashboardCtrl", function($scope, $state, $rootScope, pocketData, balanceData) {
+    app.controller("CashboardCtrl", function($scope, $state, $rootScope, Pocket, Balance) {
         $scope.pockets = [];
         if (!$rootScope.authInfo) {
             $state.go("login");
         }
 
-        $scope.balance = balanceData;
+        $scope.balance = Balance.getBalance();
         $scope.balance.percentage = ($scope.balance.safeToSpend*100)/$scope.balance.balance;
 
-        var items = pocketData;
+        var items = Pocket.getPockets();
         angular.forEach(items, function(item) {
             if (!item.percent) {
                 item.percentage = (item.amount - item.remaining) / 100;

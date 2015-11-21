@@ -64,11 +64,11 @@ angular.module('pockets', [
                     }
                 },
                 resolve: {
-                    pocketData: function(auth, Pocket) {
-                        return Pocket.getPockets();
+                    pocket: function(auth, Pocket) {
+                        return Pocket.sync();
                     },
-                    balanceData: function(Balance) {
-                        return Balance.getBalance();
+                    balance: function(Balance) {
+                        return Balance.sync();
                     }
                 }
             })
