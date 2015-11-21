@@ -3,9 +3,15 @@
          ng-repeat="pocket in pockets"
          ng-class="pocket.id"
          ng-style="{
-            'background': pocket.color
+            'background': pocket.color,
+            'border-top': 'solid 1px '+ pocket.color,
+            'color': pocket.color
          }"
          index="$index">
+        <span class="share">
+            {{pocket.percent | percentShow}}
+            <span class="label" ng-show="pocket.name">{{pocket.name}}</span>
+        </span>
     </div>
     <div class="pocket-bar-free" ng-transclude></div>
 </div>

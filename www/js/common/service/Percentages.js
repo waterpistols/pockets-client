@@ -1,14 +1,14 @@
 (function(app) {
     'use strict';
 
-    app.factory("Pocket", function(_ajax, localStorageService, $q) {
+    app.factory("Percentages", function(_ajax, localStorageService, $q) {
         var _keys = {
-            pockets: "pockets"
+            pockets: "percentages"
         };
 
         return {
             sync: function() {
-                return _ajax.getPockets().then(
+                return _ajax.getPercentages().then(
                     function success(res) {
                         if (res.data) {
                             return localStorageService.set(_keys.pockets, res.data);
@@ -18,7 +18,10 @@
                     }
                 );
             },
-            getPockets: function() {
+            save: function(payload) {
+                return _ajax.savePercentages(payload);
+            },
+            getPercentages: function() {
                 return localStorageService.get(_keys.pockets);
             },
             getById: function() {
@@ -26,7 +29,7 @@
                 var result = {};
 
                 for (var i = 0 ; i < pockets.length; i++ ) {
-                    result[ pockets[i]._id ] = pockets[i];
+                    result[ pockets[i].id ] = pockets[i];
                 }
                 return result;
             }

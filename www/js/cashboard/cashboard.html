@@ -1,17 +1,25 @@
-<ion-view view-title="Cashboard" hide-back-button="true">
-    <ion-content>
-        <h2>Last month: </h2>
-        <nvd3-line-chart
-            data="exampleData"
-            showXAxis="true"
-            showYAxis="true"
-            tooltips="true"
-            interactive="true"
-            margin="{left:20,top:20,bottom:20,right:20}"
-            tooltips="true"
-            tooltipcontent="toolTipContentFunction()"
-            noData="No data to display :)"
-        >
-    </nvd3-line-chart>
+<ion-view view-title="CASHBOARD" id="Cashboard" hide-nav-bar="false" hide-back-button="true">
+    <ion-content class="padding">
+        <ks-swiper-container initial-slide="0" speed="100" loop="true" show-nav-buttons="false" slides-per-view="" space-between="0" pagination-clickable="false" override-parameters="{effect: 'cube', cube: {
+  slideShadows: false,
+  shadow: true,
+  shadowOffset: 20,
+  shadowScale: 0.94
+}}" on-ready="onReadySwiper(swiper)">
+            <ks-swiper-slide class="swiper-slide" ng-repeat="pocket in pockets">
+                <div style="width: 98%" class="card pocket {{ getCardType(pocket) }}" ng-click="details(pocket.id)">
+                    <div class="item item-text-wrap">
+                        <div class="{{ getCardIcon(pocket.color)}}"></div>
+                        <div class="name">{{ pocket.name }}</div>
+                        <div class="category">{{ pocket.category }}</div>
+                        <div class="amount">${{ pocket.amount }}
+                            <br><span ng-show="{{ pocket.amount }}">available</span></div>
+                        <div ng-show="{{ pocket.amount }}" class="pocket-percentage">
+                        </div>
+                        <div class="percentage" style="background: white" ng-style="{ 'width': pocket.percentage*3 }"></div>
+                    </div>
+                </div>
+            </ks-swiper-slide>
+        </ks-swiper-container>
     </ion-content>
 </ion-view>
