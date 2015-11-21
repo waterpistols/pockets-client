@@ -37,6 +37,9 @@
             getPocket: function() {
                 return localStorageService.get(_keys.pocket);
             },
+            removeLocation: function(id) {
+                return _ajax.removeLocation(id);
+            },
             getById: function() {
                 var pockets = localStorageService.get(_keys.pockets);
                 var result = {};

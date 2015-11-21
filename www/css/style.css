@@ -14,9 +14,11 @@
     right: 0;
     text-align: center;
 }
+
 .login-page {
     padding-top: 80px;
 }
+
 .scroll-content {
     background: #2C3D47;
 }
@@ -258,11 +260,64 @@ ion-header-bar .title {
 
 #cashboard-details #balance-bar {
     height: 10px;
-    background:#FFFFFF;
+    background: #FFFFFF;
     margin-top: 70px;
 }
 
 #cashboard-details #balance-bar .percentage {
     height: 10px !important;
     margin-top: 70px;
+}
+
+.scale-in {
+    -webkit-transform: scale(0.0);
+    transform: scale(0.0);
+    opacity: 0;
+}
+
+.scale-in.ng-enter,
+.scale-in > .ng-enter {
+    -webkit-transition: all cubic-bezier(.1, .7, .1, 1) 400ms;
+    transition: all cubic-bezier(.1, .7, .1, 1) 400ms;
+}
+
+.scale-in.ng-enter-active,
+.scale-in > .ng-enter-active {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+}
+
+.scale-in.ng-leave,
+.scale-in > .ng-leave {
+    -webkit-transition: all ease-in-out 250ms;
+    transition: all ease-in-out 250ms;
+}
+
+.card .wizard {
+    background:#F4F4F4 !important;
+    border-radius:6px !important;
+    width:300px;
+    height:400px;
+}
+
+.wizard-title {
+    font-family: Roboto;
+    font-size: 21px !important;
+    color: #FF4A00 !important;
+    line-height: 28px;
+    text-align: center;
+}
+
+.wizard-subtitle {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: Roboto;
+    font-size: 13px;
+    color: #2C3D47;
+    line-height: 18px;
+    text-align: center;
+}
+.wizard-list > ul > li {
+    display: inline-block;
 }

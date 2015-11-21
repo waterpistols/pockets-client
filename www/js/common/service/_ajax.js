@@ -40,6 +40,13 @@
                     headers: { "X-apikey": $rootScope.authInfo.token }
                 });
             },
+            removeLocation: function(id) {
+                return $http({
+                    method: "DELETE",
+                    url: Config.url + "/locations/" + id,
+                    headers: { "X-apikey": $rootScope.authInfo.token }
+                });
+            },
             updatePocket: function(transaction, pocket) {
                 return $http({
                     method:"PUT",

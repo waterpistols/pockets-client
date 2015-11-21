@@ -14,15 +14,20 @@
             };
 
             $scope.refresh = function() {
-                Pocket.sync().finally(function() {
-                    $scope.pockets = Pocket.getPockets();
-                    setPercentage($scope.pockets);
-                    $scope.$broadcast('scroll.refreshComplete');
-                });
+                $scope.pockets = [];
+                $scope.$apply();
+
+                $timeout(function() {
+                    Pocket.sync().finally(function() {
+                        $scope.pockets = Pocket.getPockets();
+                        setPercentage($scope.pockets);
+                        $scope.$broadcast('scroll.refreshComplete');
+                    });
+                }, 1200);
             };
 
             $scope.addNew = function() {
-                $state.go();
+                $state.go("tab.pocketWizard");
             };
 
             $scope.details = function(id) {

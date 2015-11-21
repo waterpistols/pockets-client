@@ -86,6 +86,15 @@ angular.module('pockets', [
                     }
                 }
             })
+            .state('tab.pocketWizard', {
+                url: '/pocketWizard',
+                views: {
+                    'tab-pockets': {
+                        templateUrl: 'js/pockets/wizard.html',
+                        controller: 'PocketWizardCtrl'
+                    }
+                }
+            })
             .state('tab.pocket', {
                 url: '/pockets/:pocketId',
                 views: {
