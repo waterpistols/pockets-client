@@ -7,7 +7,7 @@
 
         $ionicModal.fromTemplateUrl('pockets-list.html', {
             scope: $scope,
-            animation: 'slide-in-up'
+            animation: 'scale-in'
         }).then(function(modal) {
             $scope.modal = modal;
         });
