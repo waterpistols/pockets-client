@@ -186,7 +186,6 @@ ion-header-bar .title {
     position: absolute;
     bottom: 0;
     margin-left: -20px;
-    transition: width linear 1s;
 }
 
 #pockets .card.pocket.new-pocket > div {
