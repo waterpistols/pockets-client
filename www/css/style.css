@@ -56,6 +56,7 @@ ion-header-bar .title {
 
 .card.pocket {
     margin: 10px 0 10px 0;
+    display: block;
 }
 
 .card.pocket .item {
@@ -158,8 +159,8 @@ ion-header-bar .title {
     margin-top: -40px;
 }
 
-.percentage.ng-enter{
- transition:1s linear width;
+.percentage.ng-enter {
+    transition: 1s linear width;
 }
 
 .pocket .item .amount span {
@@ -188,7 +189,6 @@ ion-header-bar .title {
     margin-left: -20px;
 }
 
-
 .pocket #add-new-pocket {
     text-align: center;
     font-size: 15px;
@@ -210,4 +210,49 @@ ion-header-bar .title {
     width: 40px;
     margin-left: 50px;
     margin-top: -30px;
+}
+
+#cashboard-details {
+    height: 150px;
+    padding: 10px;
+}
+
+#cashboard-details #balance {
+    font-family: Roboto;
+    font-size: 27px;
+    color: #4BD1B7;
+    line-height: 34px;
+    text-align: left;
+    float: left;
+    width: 100%;
+}
+
+#cashboard-details #balance span {
+    float: right;
+    color: #fff;
+}
+
+#cashboard-details #balance-small {
+    ffont-family: Roboto;
+    font-size: 12px;
+    color: #4BD1B7;
+    text-align: left;
+    float: left;
+    width: 100%;
+}
+
+#cashboard-details #balance-small span {
+    float: right;
+    color: #fff;
+}
+
+#cashboard-details #balance-bar {
+    height: 10px;
+    background:#FFFFFF;
+    margin-top: 70px;
+}
+
+#cashboard-details #balance-bar .percentage {
+    height: 10px !important;
+    margin-top: 70px;
 }

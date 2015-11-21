@@ -5,7 +5,6 @@ angular.module('pockets', [
         'ngAnimate',
         'ksSwiper',
         'LocalStorageModule',
-        'nvd3ChartDirectives'
     ])
     .run(function($ionicPlatform, $rootScope, User, Notification) {
         User.sync();
@@ -67,6 +66,9 @@ angular.module('pockets', [
                 resolve: {
                     pocketData: function(auth, Pocket) {
                         return Pocket.getPockets();
+                    },
+                    balanceData: function(Balance) {
+                        return Balance.getBalance();
                     }
                 }
             })
@@ -84,12 +86,27 @@ angular.module('pockets', [
                     }
                 }
             })
-            .state('tab.pocket-details', {
-                url: '/pocket/:pocketId',
+            .state('tab.pocket', {
+                url: '/pockets/:pocketId',
                 views: {
                     'tab-pockets': {
                         templateUrl: 'js/pockets/pocket-details.html',
                         controller: 'PocketDetailsCtrl'
+                    }
+                },
+                resolve: {
+                    pocketDetails: function($stateParams, $ionicPopup, auth, Pocket) {
+
+                        if (!$stateParams.pocketId) {
+                            return false;
+                        }
+                        return Pocket.syncById($stateParams.pocketId).catch(function() {
+                            $ionicPopup.alert({
+                                title: 'Error!',
+                                template: 'Couldn\'t fetch pocket'
+                            });
+                            return false;
+                        });
                     }
                 }
             })

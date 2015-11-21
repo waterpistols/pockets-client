@@ -9092,6 +9092,25 @@ a.button {
 .full-height .scroll {
   height: 100%; }
 
+.login-btn {
+  margin-top: 30px;
+  background: #FF4A00;
+  border-radius: 100px;
+  width: 175px;
+  height: 49px;
+  font-size: 15px;
+  color: #FFFFFF;
+  letter-spacing: 2px;
+  line-height: 20px;
+  text-align: center;
+  border: 0; }
+
+.logo .logo-title {
+  color: #FF4A00;
+  font-size: 50px;
+  margin-top: 5px;
+  margin-bottom: 20px; }
+
 .pocket-item {
   transition: all 1s ease; }
   .pocket-item .percentage {
@@ -9341,3 +9360,8 @@ body.loading:after {
   width: 100%;
   height: 100%;
   z-index: 999; }
+
+.bar.bar-custom, .bar.bar-custom .bar.bar-positive, .bar-custom .nav-bar-block ion-header-bar {
+  border-color: #FF7148;
+  background-color: #FF7148;
+  background-image: linear-gradient(0deg, #FF7148, #FF7148 50%, transparent 50%); }
