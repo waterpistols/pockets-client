@@ -1,30 +1,47 @@
 .pocket-item {
-    transition: all 1s ease;
 
     .percentage {
         transition: width 1s ease;
         width: 0;
     }
 
+}
+.animate {
+    transition: all 0.5s ease;
+
+    &.ng-leave.ng-leave-active,
     &.ng-enter {
-        -webkit-transform:scale(0.8);
-        opacity:0;
+        -webkit-transform: scale(0.8);
+        opacity: 0;
     }
 
-    &.ng-enter-active {
-        -webkit-transform:scale(1);
-        opacity:1;
+    &.ng-leave,
+    &.ng-enter.ng-enter-active {
+        -webkit-transform: scale(1);
+        opacity: 1;
     }
+}
+.pocket-details:before {
+    content: '';
+    position: fixed;
+    display: block;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background: #F5F5F5;
+
+
 }
 .tab-links {
     display: table;
     list-style: none;
     width: 100%;
-
+    margin-top: 20px;
 
     li {
         display: table-cell;
-        border:1px solid #7E8595;
+        border: 1px solid #7E8595;
         color: #7E8595;
         padding: 5px;
         text-align: center;
@@ -32,20 +49,82 @@
         a {
             text-decoration: none;
             color: #7E8595;
+            display: block;
         }
 
         &.active {
-            boder-color: #fff;
+            border-color: #fff;
             a {
                 color: #fff;
             }
         }
     }
 }
-.tab-panes {
-    display: none;
 
-    &:active {
+.tab-pane {
+    display: none;
+    padding: 10px 0;
+
+    .item {
+        margin: 10px 0;
+        border-radius: 6px;
+        padding: 10px 16px 10px 5px;
+
+        .date {
+            display: inline-block;
+            font-size: 10px;
+            line-height: 1.1;
+            vertical-align: middle;
+            border-right: solid 1px #ccc;
+            padding-right: 8px;
+            margin: 3px 5px;
+            p {
+                font-size: 11px;
+            }
+        }
+    }
+    &.active {
         display: block;
+    }
+    .item a, .cta {
+        font-size: 13px;
+        color: #FF4A00;
+        text-decoration: none;
+    }
+    .item i {
+        color: #FF4A00;
+        font-size: 36px;
+        height: 30px;
+        width: 30px;
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 0.8;
+    }
+    .item .name {
+        display: inline-block;
+        vertical-align: middle;
+        width: 60%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .item a {
+        float: right;
+        margin-top: 4px;
+    }
+    .cta {
+
+        text-align: center;
+        font-weight: 500;
+        display: block;
+
+        margin: 15px 0;
+
+        i {
+            display: inline-block;
+
+            font-size: 34px;
+            vertical-align: middle;
+            margin-top: -2px;
+        }
     }
 }

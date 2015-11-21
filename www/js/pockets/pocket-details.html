@@ -17,27 +17,37 @@
             <li ng-class="{active: selectedTab === 'locations'}"><a href="" ng-click="setTab('locations')">Locations</a></li>
             <li ng-class="{active: selectedTab === 'timeframe'}"><a href="" ng-click="setTab('timeframe')">Timeframe</a></li>
         </ul>
-        <div class="tab-panes" ng-class="{active: selectedTab === 'history'}">
-            <div class="tab-pane"
-                 ng-repeat="pocket in history.pockets" ng-style="getColor(pocket.color)">
-                <i ng-class="getIcon(pocket.icon)" class="pkt-icon-large"></i>
-                {{ pocket.name }}
+        <div class="tab-pane" ng-class="{active: selectedTab === 'history'}">
+
+            <div class="item animate"
+                 ng-repeat="item in pocket.transactions">
+                <div class="date">
+                    <p>{{date | transactionDateFirstLine}}</p>
+                    {{date | transactionDateSecondLine}}
+                </div>
+
+                ${{ item.amount }}
+
             </div>
         </div>
-        <div class="tab" ng-class="{active: selectedTab === 'locations'}">
-            <div class="item"
-                 ng-repeat="item in pocket.locations" ng-style="getColor(item.color)">
-                <i ng-class="getIcon(item.icon)" class="pkt-icon-large"></i>
-                {{ pocket.name }}
+        <div class="tab-pane" ng-class="{active: selectedTab === 'locations'}">
+            <div class="item animate"
+                 ng-repeat="item in pocket.locations">
+                <i class="pkt-icon-location"></i>
+                <span class="name">{{ item.name }}</span>
+                <a href="" ng-click="removeLocation(item)">remove</a>
             </div>
-            <a href="">Add Location</a>
+
         </div>
-        <div class="tab" ng-class="{active: selectedTab === 'timeframe'}">
-            <div class="item"
-                 ng-repeat="pocket in timeframe.pockets" ng-style="getColor(pocket.color)">
-                <i ng-class="getIcon(pocket.icon)" class="pkt-icon-large"></i>
-                {{ pocket.name }}
+        <div class="tab-pane" ng-class="{active: selectedTab === 'timeframe'}">
+            <div class="item animate"
+                 ng-repeat="pocket in timeframe.pockets">
+                <i class="pkt-icon-time"></i>
+                {{ item.name }}
+                <a href="" ng-click="removeTimeframe(item)">remove</a>
             </div>
+            <a href="" class="cta"><i class="pkt-icon-time"></i>Add New Timeframe</a>
+
         </div>
 
     </ion-content>
