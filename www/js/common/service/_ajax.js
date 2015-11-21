@@ -24,10 +24,12 @@
                     headers: { "X-apikey": $rootScope.authInfo.token  }
                 });
             },
-            getPockets: function() {
+            getPockets: function(id) {
+                id = id || '';
+
                 return $http({
                     method: "GET",
-                    url: Config.url + "/pockets",
+                    url: Config.url + "/pockets/" + id,
                     headers: { "X-apikey": $rootScope.authInfo.token }
                 });
             },

@@ -56,6 +56,7 @@ ion-header-bar .title {
 
 .card.pocket {
     margin: 10px 0 10px 0;
+    display: block;
 }
 
 .card.pocket .item {

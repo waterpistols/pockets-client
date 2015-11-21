@@ -1,4 +1,44 @@
 <ion-view view-title="POCKET DETAILS">
     <ion-content class="padding">
+        <div class="card pocket {{ getCardType(pocket) }}" >
+            <div class="item item-text-wrap">
+                <div class="{{ getCardIcon(pocket.color)}}"></div>
+                <div class="name">{{ pocket.name }}</div>
+                <div class="category">{{ pocket.category }}</div>
+                <div class="amount">${{ pocket.amount }}
+                    <br><span ng-show="{{ pocket.amount }}">available</span></div>
+                <div ng-show="{{ pocket.amount }}" class="pocket-percentage">
+                </div>
+                <div class="percentage" style="background: white" ng-style="{ 'width': pocket.percentage + '%' }"></div>
+            </div>
+        </div>
+        <ul>
+            <li><a href="" ng-click="setTab('history')">History</a></li>
+            <li><a href="" ng-click="setTab('locations')">Locations</a></li>
+            <li><a href="" ng-click="setTab('timeframe')">Timeframe</a></li>
+        </ul>
+        <div class="tab" ng-class="{active: selectedTab === 'history'}">
+            <div class="item"
+                 ng-repeat="pocket in history.pockets" ng-style="getColor(pocket.color)">
+                <i ng-class="getIcon(pocket.icon)" class="pkt-icon-large"></i>
+                {{ pocket.name }}
+            </div>
+        </div>
+        <div class="tab" ng-class="{active: selectedTab === 'locations'}">
+            <div class="item"
+                 ng-repeat="item in pocket.locations" ng-style="getColor(item.color)">
+                <i ng-class="getIcon(item.icon)" class="pkt-icon-large"></i>
+                {{ pocket.name }}
+            </div>
+            <a href="">Add Location</a>
+        </div>
+        <div class="tab" ng-class="{active: selectedTab === 'timeframe'}">
+            <div class="item"
+                 ng-repeat="pocket in timeframe.pockets" ng-style="getColor(pocket.color)">
+                <i ng-class="getIcon(pocket.icon)" class="pkt-icon-large"></i>
+                {{ pocket.name }}
+            </div>
+        </div>
+
     </ion-content>
 </ion-view>
