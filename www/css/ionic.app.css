@@ -9109,7 +9109,9 @@ a.button {
   color: #FF4A00;
   font-size: 50px;
   margin-top: 5px;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-family: 'Roboto'; }
 
 .pocket-item {
   transition: all 1s ease; }
@@ -9122,6 +9124,29 @@ a.button {
   .pocket-item.ng-enter-active {
     -webkit-transform: scale(1);
     opacity: 1; }
+
+.tab-links {
+  display: table;
+  list-style: none;
+  width: 100%; }
+  .tab-links li {
+    display: table-cell;
+    border: 1px solid #7E8595;
+    color: #7E8595;
+    padding: 5px;
+    text-align: center; }
+    .tab-links li a {
+      text-decoration: none;
+      color: #7E8595; }
+    .tab-links li.active {
+      boder-color: #fff; }
+      .tab-links li.active a {
+        color: #fff; }
+
+.tab-panes {
+  display: none; }
+  .tab-panes:active {
+    display: block; }
 
 .pocket-bar-wrapper {
   position: absolute;

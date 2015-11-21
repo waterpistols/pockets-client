@@ -4,10 +4,10 @@ angular.module('pockets', [
         'ionic.service.push',
         'ngAnimate',
         'ksSwiper',
-        'LocalStorageModule',
+        'LocalStorageModule'
     ])
     .run(function($ionicPlatform, $rootScope, User, Notification) {
-        User.sync();
+        User.generateDeviceInfo();
 
         $rootScope.$on('$stateChangeStart', function() {
             $rootScope.loadingClass = true;
@@ -24,7 +24,7 @@ angular.module('pockets', [
             if (window.StatusBar) {
                 StatusBar.styleDefault();
             }
-            Notification.register();
+            //Notification.register();
         });
     })
     .config(function($stateProvider, $ionicAppProvider, $urlRouterProvider, Config) {

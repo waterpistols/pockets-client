@@ -5,6 +5,10 @@
         function($scope, Pocket, Card) {
             $scope.pocket = Pocket.getPocket();
 
+            $scope.selectedTab = 'history';
+            $scope.setTab = function (tabName) {
+                $scope.selectedTab = tabName;
+            };
             $scope.pocket.percentage = ($scope.pocket.remaining * 100) / $scope.pocket.amount;
 
 

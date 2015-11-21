@@ -14,7 +14,9 @@
     right: 0;
     text-align: center;
 }
-
+.login-page {
+    padding-top: 80px;
+}
 .scroll-content {
     background: #2C3D47;
 }

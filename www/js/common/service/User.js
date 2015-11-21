@@ -7,7 +7,33 @@
                 deviceInfo: "device"
             };
 
+            var generateDeviceInfo = function() {
+
+                //
+                // Mobile devices (iOS and android)
+                //
+                if( ionic.Platform.isAndroid() || ionic.Platform.isIOS()){
+                    document.addEventListener("deviceready", function () {
+
+                        localStorageService.set(_keys.deviceInfo, {
+                            deviceId: device.uuid,
+                            deviceName: device.model
+                        });
+
+                    }, false);
+                } else {
+                    //
+                    // All other
+                    //
+                    localStorageService.set(_keys.deviceInfo, {
+                        deviceId: $ionicUser.generateGUID(),
+                        deviceName: "Not mobile"
+                    });
+                }
+                return localStorageService.get(_keys.deviceInfo);
+            };
             return {
+                generateDeviceInfo: generateDeviceInfo,
                 sync: function() {
                     return $q(function(resolve, reject) {
                         var auth = localStorageService.get(_keys.authInfo);
@@ -19,37 +45,24 @@
 
                         var deviceInfo = localStorageService.get(_keys.deviceInfo);
 
-                        if ( ! deviceInfo ) {
-                            //
-                            // Mobile devices (iOS and android)
-                            //
-                            if( ionic.Platform.isAndroid() || ionic.Platform.isIOS()){
-                                document.addEventListener("deviceready", function () {
-                                    localStorageService.set(_keys.deviceInfo, {
-                                        deviceId: device.uuid,
-                                        deviceName: device.model
-                                    });
-
-                                }, false);
-                            } else {
-                                //
-                                // All other
-                                //
-                                localStorageService.set(_keys.deviceInfo, {
-                                    deviceId: $ionicUser.generateGUID(),
-                                    deviceName: "Not mobile"
-                                });
-                            }
+                        if (!deviceInfo) {
+                            generateDeviceInfo();
                         }
+
                         resolve(true);
                     });
 
                 },
                 login: function(data) {
-                    var deviceInfo = localStorageService.get(_keys.deviceInfo);
+                    //var deviceInfo = localStorageService.get(_keys.deviceInfo);
+                    //
+                    //if (!deviceInfo) {
+                    //    deviceInfo = generateDeviceInfo();
+                    //}
+                    //
+                    //angular.extend(data, deviceInfo);
 
-                    angular.extend(data, deviceInfo);
-
+                    console.error(data);
                     return _ajax.login(data).then(
                         function success(res) {
                             if (res.data) {
