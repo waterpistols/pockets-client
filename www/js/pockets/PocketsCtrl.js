@@ -13,18 +13,6 @@
                 }, 1000);
             });
 
-            //
-            //$scope.pockets.push({
-            //    id: 124,
-            //    date: 1448024316244,
-            //    pocketId: 223,
-            //    name: "New",
-            //    type: "Percentage - 20%",
-            //    balance: 30,
-            //    percentage: 90,
-            //    amount: 150
-            //});
-
             $scope.drawPercentage = function(percentage) {
                 $interval(function(percentage) {
                     return percentage * 3;
@@ -62,17 +50,6 @@
                     });
 
                     $scope.pockets = items;
-
-                    $scope.pockets.push({
-                        id        : 124,
-                        date      : 1448024316244,
-                        pocketId  : 223,
-                        name      : "New",
-                        type      : "Percentage - 20%",
-                        balance   : 30,
-                        percentage: 90,
-                        amount    : 150
-                    });
                 });
             }
         }
