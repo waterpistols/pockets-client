@@ -118,18 +118,15 @@ ion-header-bar .title {
 }
 
 .item .funstuff {
-    font-family: 'pockets';
-    content: "\e905";
-    font-size: 35px;
-    vertical-align: middle;
-    color: #fff;
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 20px 23px;
     height: 25px;
     width: 24px;
     margin-top: 17px;
 }
 
 .item .new {
-    background-image: url('../img/pockets.svg');
     background-repeat: no-repeat;
     background-position: top left;
     background-size: 20px 23px;
