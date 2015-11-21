@@ -8,7 +8,7 @@
         }
 
         $scope.balance = balanceData;
-        $scope.balance.percentage = ($scope.balance.balance - $scope.balance.safeToSpend)/100;
+        $scope.balance.percentage = ($scope.balance.safeToSpend*100)/$scope.balance.balance;
 
         var items = pocketData;
         angular.forEach(items, function(item) {
