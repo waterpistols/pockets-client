@@ -6,7 +6,9 @@
     "ionic-platform-web-client": "~0.2.1"
   },
   "dependencies": {
+    "angular-animate": "~1.4.8",
     "angular-local-storage": "~0.2.3",
+    "angular-swiper": "~0.3.0",
     "angularjs-nvd3-directives": "~0.0.7",
     "draggabilly": "~1.2.4",
     "ionic-service-push": "~0.1.13",

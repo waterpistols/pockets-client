@@ -47,7 +47,12 @@
             };
 
             $scope.onMoved = function() {
-                Percentages.save($scope.fluidPockets);
+                var payload = angular.copy($scope.fluidPockets);
+                payload = payload.filter(function(item) {
+                    item.percent *= 100;
+                    return true;
+                });
+                Percentages.save(payload);
             };
         }
     );
